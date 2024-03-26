@@ -3,10 +3,10 @@ import  Image from "next/image";
 const Category = ({img, title, to}: {img:StaticImageData, title:string, to:string}) => {
 
     return (
-        <div className="bg-red-400">
-            <Image src={img} alt="" className="w-auto h-full" />
-            <h1>{title}</h1>
-        </div>
+        <figure className="grid overflow-hidden cursor-pointer rounded-2xl">
+            <Image src={img} alt="Mountains" />
+            <figcaption className="grid items-end text-4xl font-bold text-black p-3">{title}</figcaption>
+        </figure>
     )
 }
 

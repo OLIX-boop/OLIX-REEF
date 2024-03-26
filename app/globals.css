@@ -4,6 +4,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
+
+/* Parallax BG */
+
 .bg {
   background-image: url(../imgs/home.jpg);
   position: absolute;
@@ -47,6 +50,7 @@
   cursor: grab;
 } 
 
+/* Instagram icon */
 
 
 .insta:hover { 
@@ -55,3 +59,25 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* CATEGORY */
+
+figure > * {
+  grid-area: 1/1;
+  transition: .4s;
+}
+figure figcaption {
+  background: var(--c,rgba(158, 158, 158, 0.6));
+  clip-path: inset(0 var(--_i,100%) 0 0);
+  -webkit-mask:
+    linear-gradient(#000 0 0),
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  -webkit-mask-clip: text, padding-box;
+  margin: -1px;
+}
+figure:hover figcaption{
+  --_i: 0%;
+}
+figure:hover img {
+  transform: scale(1.2);
+}
