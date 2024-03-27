@@ -1,9 +1,11 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import FontAwesome from "./_components/fontAwesome";
+import Nav from "./_components/navbar";
+import Footer from "./_components/footer";
+
       
 const inter = Inter({ subsets: ["latin"] });
-import Nav from "./_components/navbar";
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -17,9 +19,9 @@ export default function RootLayout({
         <FontAwesome />
       </head>
       <body className={inter.className}>
-        <div className="bg">OLIX REEF</div>
         <Nav qt={5} />
         {children}
+        <Footer />
       </body>
     </html>
   );

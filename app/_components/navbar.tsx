@@ -1,7 +1,11 @@
+'use client';
+
 import Logo from '../../imgs/logo.png';
 import Image from 'next/image';
 
+import { useRouter } from 'next/navigation'
 const Component = ({qt}:{qt:number}) => {
+    const router = useRouter();
 
     return (<>
         <div className="bg-black flex justify-between align-center py-4 px-10">
@@ -11,7 +15,7 @@ const Component = ({qt}:{qt:number}) => {
                 </a>
             </div>
 
-            <div className="max-w-20">
+            <div className="max-w-20 cursor-pointer" onClick={() => router.push('/')}>
                 <Image src={Logo} alt="OLIX REEF" />
             </div>
 
