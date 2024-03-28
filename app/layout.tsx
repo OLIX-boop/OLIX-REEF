@@ -19,7 +19,7 @@ export default function RootLayout({
         <FontAwesome />
       </head>
       <body className={inter.className}>
-        <Nav qt={5} />
+        <Nav qt={10} />
         {children}
         <Footer />
       </body>

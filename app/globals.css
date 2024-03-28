@@ -6,6 +6,14 @@
 
 /* Parallax BG */
 
+.bgText {
+	color: rgba(255, 255, 255, 0.523);
+	font-size: 8.5vw;
+	font-family: "Varela Round", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+}
+
 .bg {
   background-image: url(../imgs/home.jpg);
   position: absolute;
@@ -16,14 +24,12 @@
   min-height: 90%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position-y: -10rem;
-
+  
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-
-
+  
   color: rgba(255, 255, 255, 0.523);
   display: flex;
   align-items: center;
@@ -33,6 +39,16 @@
   font-weight: 400;
   font-style: normal;
 }
+
+@media only screen and (max-width: 768px){
+	.bg {
+		background-position-y: -40vw;
+	}
+}
+
+
+
+/* Scrollbar */
 
 ::-webkit-scrollbar {
   width: .4rem;
@@ -51,7 +67,6 @@
 
 /* Instagram icon */
 
-
 .insta:hover { 
   background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
   -webkit-background-clip: text;
@@ -60,11 +75,25 @@
 
 /* CATEGORY */
 
+.category-text:hover {
+  background: rgb(20,251,245);
+  background: linear-gradient(90deg, rgba(20,251,245,1) 16%, rgba(28,160,245,1) 100%, rgba(68,0,255,1) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 figure > * {
   grid-area: 1/1;
   transition: .4s;
 }
+
+figure > div > img {
+	grid-area: 1/1;
+	transition: .4s;
+  }
 figure figcaption {
+	width: 100%;
+	overflow: hidden;
   background: var(--c,rgba(158, 158, 158, 0.6));
   clip-path: inset(0 var(--_i,100%) 0 0);
   -webkit-mask:
@@ -73,10 +102,162 @@ figure figcaption {
   -webkit-mask-composite: xor;
   -webkit-mask-clip: text, padding-box;
   margin: -1px;
+  font-size: 3vw !important;
 }
 figure:hover figcaption{
   --_i: 0%;
 }
-figure:hover img {
+figure:hover div img {
   transform: scale(1.2);
+}
+
+/* add to cart */
+
+.addCart:hover > * {
+  transition: all .5s ease;
+}
+.addCart:hover > :nth-child(1) {
+  border-top-color: black;
+  border-bottom-color: black;
+  border-left-color: black;
+}
+
+.addCart:hover > :nth-child(2) {
+  border-top-color: black;
+  border-bottom-color: black;
+}
+
+.addCart:hover > :nth-child(3) {
+  border-top-color: black;
+  border-bottom-color: black;
+  border-right-color: black;
+}
+
+input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+/* add to cart */
+
+
+.cart-button {
+	background-color: #4834d4;
+	outline: none;
+	cursor: pointer;
+	color: #fff;
+	transition: .3s ease-in-out;
+	overflow: hidden;
+}
+.cart-button:hover {
+	background-color: #35269b;
+}
+.cart-button:active {
+	transform: scale(.9);
+}
+
+.cart-button .fa-shopping-cart {
+	position: absolute;
+	z-index: 2;
+	top: 50%;
+	left: -10%;
+	font-size: 2em;
+	transform: translate(-50%,-50%);
+}
+.cart-button .fa-box {
+	position: absolute;
+	z-index: 3;
+	top: -20%;
+	left: 52%;
+	font-size: 1.2em;
+	transform: translate(-50%,-50%);
+}
+.cart-button span {
+	position: absolute;
+	z-index: 3;
+	left: 50%;
+	top: 50%;
+	font-size: 1.2em;
+	color: #fff;
+	transform: translate(-50%,-50%);
+}
+.cart-button span.add-to-cart {
+	opacity: 1;
+	font-size: 2vh;
+}
+.cart-button span.added {
+	opacity: 0;
+}
+
+
+.cart-button.clicked .fa-shopping-cart {
+	animation: cart 1.5s ease-in-out forwards;
+}
+.cart-button.clicked .fa-box {
+	animation: box 1.5s ease-in-out forwards;
+}
+.cart-button.clicked span.add-to-cart {
+	animation: txt1 3s ease-in-out forwards;
+}
+.cart-button.clicked span.added {
+	animation: txt2 1.5s ease-in-out forwards;
+}
+
+@keyframes cart {
+	0% {
+		left: -10%;
+	}
+	40%, 60% {
+		left: 50%;
+	}
+	100% {
+		left: 110%;
+	}
+}
+@keyframes box {
+	0%, 40% {
+		top: -20%;
+	}
+	60% {
+		top: 40%;
+		left: 52%;
+	}
+	100% {
+		top: 40%;
+		left: 112%;
+	}
+}
+@keyframes txt1 {
+	0% {
+		opacity: 1;
+	}
+	1%, 50% {
+		opacity: 0;
+	}
+	60%, 100% {
+		opacity: 1;
+	}
+}
+@keyframes txt2 {
+	0%, 80% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes txt2 {
+	0%, 80% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }

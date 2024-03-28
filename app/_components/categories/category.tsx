@@ -8,8 +8,10 @@ const Category = ({img, title, to}: {img:StaticImageData, title:string, to:strin
     const router = useRouter();
 
     return (
-        <figure onClick={() => router.push('/'+to)} className="grid overflow-hidden cursor-pointer rounded-2xl">
-            <Image src={img} alt="Mountains" />
+        <figure onClick={() => router.push('/'+to)} className="grid aspect-square overflow-hidden cursor-pointer rounded-2xl">
+            <div className="w-[100%]">
+                <Image className="" src={img} alt="Mountains" />
+            </div>
             <figcaption className="grid items-end text-4xl font-bold text-black p-3">{title}</figcaption>
         </figure>
     )
