@@ -36,8 +36,8 @@ export default function Products({params}: {params:params}) {
                 <Image className="hover:scale-125 duration-200" src={product?.img || notFound}  alt=""/>
             </div>
             <div className="ml-8 md:w-[50%]">
-                <h1 className="font-bold text-5xl mb-3 w-fit md:mx-0 mx-auto">{product?.title}</h1>
-                <h1 className="font-bold text-5xl mb-3 w-fit md:mx-0 mx-auto">€{product?.price}</h1>
+                <h1 className="font-bold text-5xl mb-3 w-fit text-center md:text-left md:mx-0 mx-auto">{product?.title}</h1>
+                <h1 className="font-bold text-5xl mb-3 w-fit text-center md:text-left md:mx-0 mx-auto">€{product?.price}</h1>
 
                 <div className="w-[80%] mx-auto my-9 md:hidden block h-auto overflow-hidden">
                     <Image className="hover:scale-125 duration-200" src={product?.img || notFound}  alt=""/>

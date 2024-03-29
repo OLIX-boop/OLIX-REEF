@@ -144,6 +144,12 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
+input[type=number]::placeholder {
+	font-size: .8rem;
+	padding: 0 .3rem;	
+}
+
+
 /* add to cart */
 
 
