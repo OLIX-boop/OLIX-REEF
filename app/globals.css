@@ -259,11 +259,28 @@ input[type=number]::placeholder {
 	}
 }
 
-@keyframes txt2 {
-	0%, 80% {
-		opacity: 1;
+/*  */
+@keyframes filtro {
+	0% {
+		max-height: 10%;
 	}
 	100% {
-		opacity: 0;
+		max-height: 0;
 	}
+}
+
+@keyframes nascosto {
+	0% {
+		max-height: 0;
+	}
+	100% {
+		max-height: 10%;
+	}
+}
+.filtro {
+	animation: filtro .5s ease-in-out forwards;
+}
+
+.filtro.nascosto {
+	animation: nascosto .5s ease-in-out forwards;
 }
