@@ -1,18 +1,21 @@
-"use client";
+export const revalidate = 0;
+
 import Image from "next/image"
 import Banner from "../../imgs/categories/sps.jpg"
-import Card from "../_components/card"
 import Badge from "../_components/badge"
-import Filters from "./_filters/filters"
 
-import { useState } from "react"
-
-import { newCorals } from "../page"
-
-export default function Sps() {
-    const [filter, useFilter] = useState(true);
+import Products from "./_products/products";
 
 
+import PocketBase from 'pocketbase';
+
+const pb = new PocketBase('http://127.0.0.1:8090');
+pb.autoCancellation(false);
+
+const getProducts = async () => await pb.collection('products').getFullList({filter: 'type = "SPS"',});
+
+export default async function Sps() {
+    const products = await getProducts();
     return (<>
         <div className="absolute z-[-1] w-full" >
             <Image className="w-full" src={Banner} alt="SPS" />
@@ -25,42 +28,15 @@ export default function Sps() {
             </div>
         </div>
 
-        <div className="sm:mr-[10%] mt-[3%] flex">
-            <div className="w-[100%] ml-[5%] hidden sm:block">
-                <Filters />
-            </div>
-
-            <div className="sm:pr-[12%] pl=0 pr-0 sm:pl-4">
-                <div className="flex justify-between">
-                    <h1 className="font-bold pl-4">{newCorals.length} Product(s)</h1>
-                    <button onClick={() => useFilter(e => !e)} className="bg-black border-2 sm:hidden border-black text-white hover:bg-white hover:text-black duration-300 font-bold w-[20%] mr-3 rounded-[4px] py-1">Filter</button>
-                </div>
-                
-                <div className={"w-[97%] ml-4 overflow-hidden filtro sm:hidden " + (!filter ? "nascosto" :"")}>
-                    <Filters />
-                </div>
-                
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-1 sm:gap-4">
-                    {newCorals.map(e => 
-                        <Card
-                        key={e.id}
-                        title={e.title}
-                        img={e.img}
-                        price={e.price}
-                        id={e.id}
-                    />)}
-                </div>
-
-            </div>
-        </div>
+        <Products ip={process.env.NEXT_DB_ID || ''} products={products} />
 
         <hr className="my-9 mx-[10%]" />
 
         <div className="flex min-[960px]:flex-row flex-col justify-center pt-7 mb-12 gap-7">
-                <Badge title="Fast Shipping" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon="fa-regular fa-truck-fast" />
-                <Badge title="10 days Warantee" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon="fa-regular fa-shield-check" />
-                <Badge title="Fast Shipping" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon="fa-regular fa-headset" />
-            </div>
+            <Badge title="Fast Shipping" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon="fa-regular fa-truck-fast" />
+            <Badge title="10 days Warantee" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon="fa-regular fa-shield-check" />
+            <Badge title="Fast Shipping" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon="fa-regular fa-headset" />
+        </div>
 
     </>)
 }

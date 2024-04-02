@@ -1,6 +1,7 @@
+
+
 import Category from "./_components/categories/category";
 import Badge from "./_components/badge";
-import Card from "./_components/card";
 import NewCoralsCarousel from "@/app/_components/newCorals/newCorals";
 
 
@@ -9,6 +10,7 @@ import LPS from "../imgs/products/lps.jpeg";
 import SOFT from "../imgs/products/soft.png";
 
 import Speciosa from "../imgs/products/fs.png";
+
 
 const newCorals = [
   {title: "Acropora Speciosa Flaming Sunrise", price: 1400.00, img: Speciosa, stock:1, id: "6738feb7-e626-4a74-b9ff-266e42974e5e"},
@@ -21,8 +23,8 @@ const newCorals = [
 
 export {newCorals};
 
-export default function Home() {
-  
+
+export default async function Home() {
   return (<>
     <div className="bg"></div>
     <h1 className="w-fit py-[16%] bgText m-auto">OLIX REEF</h1>

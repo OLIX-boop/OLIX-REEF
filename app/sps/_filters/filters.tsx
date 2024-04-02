@@ -31,7 +31,7 @@ const Filters = () => {
         <h1 className="font-bold text-lg mt-3 ">Sort By</h1>
 
         <select className="border-[1px] border-gray-300 w-full rounded-[5px] py-2 px-1 text-gray-700" name="" id="">
-          <option selected value="none">None</option>
+          <option value="none">None</option>
           <option value="new">Newest</option>
           <option value="a-z">Name: A to Z</option>
           <option value="z-a">Name: Z to A</option>
