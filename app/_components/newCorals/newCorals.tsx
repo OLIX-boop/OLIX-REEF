@@ -1,15 +1,31 @@
-import { newCorals } from "@/app/page";
+import PocketBase from 'pocketbase';
+
+const pb = new PocketBase('http://127.0.0.1:8090');
+
 import Card from "../card";
 
-const NewCoralsCarousel = () => {
+const getNewCorals = async () =>  {
+  const date = new Date();
+  date.setDate(new Date().getDate()-7);
+
+  const result = await pb.collection('products').getList(1, 4, {
+    filter: `created >= "${date.toISOString()}"`,
+  });
+
+  if (result.items.length >= 4) return result;
+  else return await pb.collection('products').getList(1, 4);
+};
+
+const NewCoralsCarousel = async () => {
+  const products = await getNewCorals();
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-[20%]">
-        {newCorals.slice(0, 4).map((e) => (
+        {products.items.slice(0, 4).map((e) => (
           <Card
             key={e.id}
             title={e.title}
-            img={e.img}
+            img={`http://${process.env.NEXT_DB_ID}/api/files/${e.collectionId}/${e.id}/${e.img}`}
             price={e.price}
             id={e.id}
           />

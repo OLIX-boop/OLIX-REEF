@@ -1,6 +1,5 @@
 export const revalidate = 0;
 import Image from "next/image";
-import { newCorals } from "@/app/page";
 import notFound from '../../../imgs/products/notfound.png';
 import Badge from "@/app/_components/badge";
 

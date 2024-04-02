@@ -1,5 +1,3 @@
-
-
 import Category from "./_components/categories/category";
 import Badge from "./_components/badge";
 import NewCoralsCarousel from "@/app/_components/newCorals/newCorals";
@@ -8,21 +6,6 @@ import NewCoralsCarousel from "@/app/_components/newCorals/newCorals";
 import SPS from "../imgs/products/sps.jpg";
 import LPS from "../imgs/products/lps.jpeg";
 import SOFT from "../imgs/products/soft.png";
-
-import Speciosa from "../imgs/products/fs.png";
-
-
-const newCorals = [
-  {title: "Acropora Speciosa Flaming Sunrise", price: 1400.00, img: Speciosa, stock:1, id: "6738feb7-e626-4a74-b9ff-266e42974e5e"},
-  {title: "Acropora Duchè", price: 999.99, img: SPS, stock:1, id: "4fcd912e-f69d-4d48-9837-0ab9c0db82c7"},
-  {title: "Acropora Duchè", price: 999.99, img: SPS, stock:1, id: "e6a6a3b7-2848-41ce-95d9-3041b7a8dbdd"},
-  {title: "Acropora Duchè", price: 999.99, img: SPS, stock:1, id: "8bb0e1c7-90b7-4da9-bcbe-425152e8ad2e"},
-  {title: "Acropora Duchè", price: 999.99, img: SPS, stock:1, id: "dd459993-0324-4946-aec2-d4e8f16b310a"},
-  {title: "Acropora Duchè", price: 999.99, img: SPS, stock:1, id: "581155a0-abaa-4882-85e0-84239918c8f4"},
-]
-
-export {newCorals};
-
 
 export default async function Home() {
   return (<>

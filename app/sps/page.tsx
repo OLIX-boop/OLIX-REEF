@@ -3,19 +3,22 @@ export const revalidate = 0;
 import Image from "next/image"
 import Banner from "../../imgs/categories/sps.jpg"
 import Badge from "../_components/badge"
-
 import Products from "./_products/products";
 
-
 import PocketBase from 'pocketbase';
+
+interface Params {
+    category: string
+}
 
 const pb = new PocketBase('http://127.0.0.1:8090');
 pb.autoCancellation(false);
 
-const getProducts = async () => await pb.collection('products').getFullList({filter: 'type = "SPS"',});
+const getProducts = async (category: string) => await pb.collection('products').getFullList({filter: `type = "SPS" ${category}`});
 
-export default async function Sps() {
-    const products = await getProducts();
+export default async function Sps({searchParams}: {searchParams:Params}) {
+    const filter = searchParams.category ? `&& category = "${searchParams.category}"` : "";
+    const products = await getProducts(filter);
     return (<>
         <div className="absolute z-[-1] w-full" >
             <Image className="w-full" src={Banner} alt="SPS" />
