@@ -1,7 +1,7 @@
 export const revalidate = 0;
 import Image from "next/image";
 import notFound from '../../../imgs/products/notfound.png';
-import Badge from "@/app/_components/badge";
+import Badge from "@/app/_components/badge/badge";
 
 import NewCoralsCarousel from "@/app/_components/newCorals/newCorals";
 
@@ -46,7 +46,7 @@ export default async function Products({params}: {params:params}) {
 
                 <hr className="border-black" />
 
-                <AddToCart stock={product!.stock}/>
+                <AddToCart product={product}/>
 
                 <hr className="border-black mt-8" />
 

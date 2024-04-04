@@ -1,8 +1,10 @@
+
 import { Inter } from "next/font/google";
 import "./globals.css";
-import FontAwesome from "./_components/fontAwesome";
-import Nav from "./_components/navbar";
-import Footer from "./_components/footer";
+import FontAwesome from "./_components/font/fontAwesome";
+import Nav from "./_components/nav/navbar";
+import Footer from "./_components/footer/footer";
+import { Toaster } from 'react-hot-toast'
 
       
 const inter = Inter({ subsets: ["latin"] });
@@ -11,6 +13,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <head>
@@ -19,7 +22,8 @@ export default function RootLayout({
         <FontAwesome />
       </head>
       <body className={inter.className}>
-        <Nav qt={10} />
+        <Toaster />
+        <Nav />
         {children}
         <Footer />
       </body>

@@ -1,11 +1,16 @@
 'use client';
 
-import Logo from '../../imgs/logo.png';
+import Logo from '../../../imgs/logo.png';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation'
+import { Cart } from '../cart/cart';
+import { useState } from 'react';
 
-const Component = ({qt}:{qt:number}) => {
+
+const Component = () => {
     const router = useRouter();
+    const [qt, setQt] = useState(Cart.quantity);
+    Cart.SetCartHook(setQt); // Initialize state for Cart
 
     return (<>
         <div className="bg-black grid grid-cols-2 sm:grid-cols-3 justify-between align-center py-4 px-10">

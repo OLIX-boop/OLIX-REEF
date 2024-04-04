@@ -1,5 +1,5 @@
 import Category from "./_components/categories/category";
-import Badge from "./_components/badge";
+import Badge from "./_components/badge/badge";
 import NewCoralsCarousel from "@/app/_components/newCorals/newCorals";
 
 

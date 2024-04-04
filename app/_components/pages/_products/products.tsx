@@ -1,11 +1,11 @@
 'use client';
 
 import Filters from "../_filters/filters"
-import Card from "@/app/_components/card"
+import Card from "@/app/_components/card/card"
 import { RecordModel } from "pocketbase"
 import { useState, useEffect } from "react"
 
-export default function Products({products, ip}: {products:RecordModel[], ip:string}) {
+export default function Products({products, ip, type, Categories}: {products:RecordModel[], ip:string, type:string, Categories:Array<string>}) {
     const [filtered, setFiltered] = useState([...products]);
     const [filter, useFilter] = useState(true);
 
@@ -41,7 +41,7 @@ export default function Products({products, ip}: {products:RecordModel[], ip:str
     return(<>
         <div className="sm:mr-[10%] mt-[3%] flex">
             <div className="w-[80%] ml-[5%] hidden sm:block">
-                <Filters Sort={sortContent} Clear={Clear} />
+                <Filters Categories={Categories} type={type} Sort={sortContent} Clear={Clear} />
             </div>
 
             <div className="sm:pr-[12%] pl=0 pr-0 sm:pl-4">
@@ -53,7 +53,7 @@ export default function Products({products, ip}: {products:RecordModel[], ip:str
                 </div>
 
                 <div className={ "w-[97%] ml-4 overflow-hidden filtro sm:hidden " + (!filter ? "nascosto" : "") }>
-                    <Filters Sort={sortContent} Clear={Clear} />
+                    <Filters Categories={Categories} type={type} Sort={sortContent} Clear={Clear} />
                 </div>
                 
                 <div className="grid grid-cols-2 lg:grid-cols-4 gap-1 sm:gap-4">

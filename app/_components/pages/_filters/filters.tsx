@@ -1,16 +1,15 @@
 'use client';
 import { useRouter } from "next/navigation";
 
-const Filters = ({Sort, Clear}: {Sort: (type:string) => void, Clear: ()=>void}) => {
+const Filters = ({Sort, Clear, Categories, type}: {Sort: (type:string) => void, Clear: ()=>void, Categories: Array<string>, type:string}) => {
   const router = useRouter();
+  const route = type.toLowerCase();
   return (
     <>
       <h1 className="font-bold text-xl mb-3">Categories</h1>
 
       <div className="border-gray-300 border-[1px] rounded-md p-3">
-        <p onClick={() => router.push('/sps?category=Acropora')}>Acropora</p>
-        <p onClick={() => router.push('/sps?category=Millepora')}>Millepora</p>
-        <p onClick={() => router.push('/sps?category=Montipora')}>Montipora</p>
+        {Categories.map((e, key) => <p key={key} onClick={() => router.push(`/${route}?category=${e}`)}>{e}</p>)}
       </div>
 
       <div>
@@ -26,7 +25,7 @@ const Filters = ({Sort, Clear}: {Sort: (type:string) => void, Clear: ()=>void}) 
         </select>
       </div>
 
-      <button onClick={() => {router.push('/sps');}} className="bg-black border-2 mt-4 border-black text-white hover:bg-white hover:text-black duration-300 font-bold w-full rounded-[4px] py-1">Clear Filters</button>
+      <button onClick={() => {router.push('/'+route); Clear()}} className="bg-black border-2 mt-4 border-black text-white hover:bg-white hover:text-black duration-300 font-bold w-full rounded-[4px] py-1">Clear Filters</button>
     </>
   );
 };
