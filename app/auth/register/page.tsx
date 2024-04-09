@@ -16,6 +16,8 @@ export default function Register() {
     
     const [pswMatch, setPswMatch] = useState(true);
     const [pswLength, setPswLength] = useState(true);
+
+    const [success, setSuccess] = useState(false);
     
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -29,15 +31,43 @@ export default function Register() {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(form)
             });
-            console.log(response)
-            if (!response.ok) {
-                setError('Failed to register user');
-                return;
-            };
+
+            if (!response.ok) 
+                return setError('Failed to register user');
+            else
+                setSuccess(true);
+
             const data = await response.json();
             console.log(data);
+
+            // initialize for send verification loop
+            setError('');
+            setTimer();
         } catch (err) {
             setEmail('error');
+        }
+    }
+
+    const [timerUse, setTimerUse] = useState(false);
+    const [time, setTime] = useState(10);
+    const setTimer = () => {
+        if (!timerUse) {
+            setTimerUse(true);
+            setTime(10);
+            const id = setInterval(() => {
+                setTime(t => {
+                    const newT = t-1;
+
+                    if (newT < 1) {
+                        setTimerUse(false);
+                        clearInterval(id);
+                    }
+
+                    return newT; 
+                });
+
+            }, 1000);
+            
         }
     }
 
@@ -45,14 +75,28 @@ export default function Register() {
         setPasswordConfirm(value || '');
         setPswMatch(password===value || passwordConfirm.length === 0 || password.length === 0);
     }
-    const handlePswLength = (e:React.FormEvent<HTMLInputElement>) => {
+    const handlePswLength = (e:any) => {
         setPswLength((e.target.value.length >= 8 || e.target.value.length === 0));
         setPswMatch(passwordConfirm===e.target.value || passwordConfirm.length === 0 || password.length === 0);
     }
 
+    const sendVerification = async () => {
+        if (!timerUse) {
+            setError('New verification link sent!');
+
+            const response = await fetch('/api/auth/sendverification', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({email})
+            });
+
+
+            setTimer();
+        } else setError('Wait '+time+' seconds before sending another verification link.');
+    }
 
     return (<>
-        <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-[30%] mt-[10vh] m-auto border-2 border-black justify-center align-middle py-9">
+        {!success && <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-[30%] mt-[10vh] m-auto border-2 border-black justify-center align-middle py-9">
             <h1 className="text-2xl font-bold mx-auto">Register</h1>
 
             <p className="ml-[15%] mb-[-1vh]">{error}</p>
@@ -60,12 +104,12 @@ export default function Register() {
             <div className="grid grid-cols-2 w-[70%] mx-auto ">
                 <div>
                     <label className="mb-[-1vh]" htmlFor="name">First Name</label>
-                    <input required className="border-2 mx-auto py-1 w-[90%] text-md hover:border-black duration-200" type="text" value={firstName} onChange={e => setFirstName(e.target.value || '')} id="name" />
+                    <input required maxLength={10} className="border-2 mx-auto py-1 w-[90%] text-md hover:border-black duration-200" type="text" value={firstName} onChange={e => setFirstName(e.target.value || '')} id="name" />
                 </div>
 
                 <div>
                     <label className="mb-[-1vh]" htmlFor="name">Last Name</label>
-                    <input required className="border-2 mx-auto w-[100%] py-1 text-md hover:border-black duration-200" type="text" value={lastName} onChange={e => setLastName(e.target.value || '')} id="lastname" />
+                    <input required maxLength={10} className="border-2 mx-auto w-[100%] py-1 text-md hover:border-black duration-200" type="text" value={lastName} onChange={e => setLastName(e.target.value || '')} id="lastname" />
                 </div>
             </div>
 
@@ -83,6 +127,18 @@ export default function Register() {
             <button type="submit" className="mx-auto bg-black text-white py-2 w-[70%] border-2 border-black font-bold hover:text-black hover:bg-white duration-150">Register</button>
 
             <p onClick={() => router.push('/auth/login')} className="mx-auto cursor-pointer">Already registered? Login</p>
-        </form>
+        </form>}
+
+        {success && <div className="flex flex-col gap-4 w-[50%] my-[30vh] m-auto border-2 border-black justify-center align-middle py-9">
+
+            <h1 className="text-2xl font-bold mx-auto">Verify your email!</h1>
+            <p className=" mx-auto w-[80%] text-center mb-[-1vh]">Thanks for creating an account! To ensure it&apos;s yours, we&apos;ve sent a verification email to <strong>{email}</strong>. Click the link in that email to complete your account setup. Didn&apos;t see it? Check your spam folder or request a new verification email below. Once verified, you&apos;ll be ready to use your account!</p>
+
+            <p className="mt-5 mx-auto text-sm">{error}</p>
+            <div className="grid grid-cols-2 gap-2 ">
+                <button onClick={sendVerification} type="submit" className="ml-auto bg-black text-white py-2 w-[60%] border-2 border-black font-bold hover:text-black hover:bg-white duration-150">Resend email</button>
+                <button type="submit" className="mr-auto text-black bg-white py-2 w-[60%] border-2 border-black font-bold hover:bg-black hover:text-white duration-150">Return to OLIX Reef</button>
+            </div>
+        </div> }
     </>)
 }

@@ -26,28 +26,29 @@ export class DatabaseClient {
             throw new Error("Invalid email or password");
         }
     }
-
+    
     // register handles the creation of a new user
-    async register (email: string, password: string) {
+    async register (email: string, password: string, name:string) {
         try {
             // We provide only the minimum required fields by user create method
             const result = await this.client.collection("users").create({
+                name,
                 email,
                 password,
                 passwordConfirm: password,
             });
-
+            
             return result;
-        } catch (err) {
-
-        }
+        } catch (err) {};
     }
-
+    
     async requestVerification(email:string) {
         try {
-            await this.client.collection('users').requestVerification(email);
+            const res = await this.client.collection('users').requestVerification(email);
+            console.log(res);
         } catch (err) {
-
+            console.log(err);
+            
         }
     }
 
