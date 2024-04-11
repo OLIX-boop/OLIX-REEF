@@ -31,14 +31,13 @@ export default function Register() {
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(form)
             });
+            const data = await response.json();
 
             if (!response.ok) 
-                return setError('Failed to register user');
+                return setError(data.error);
             else
                 setSuccess(true);
 
-            const data = await response.json();
-            console.log(data);
 
             // initialize for send verification loop
             setError('');
@@ -48,12 +47,13 @@ export default function Register() {
         }
     }
 
+    const delay = 60*2;
     const [timerUse, setTimerUse] = useState(false);
-    const [time, setTime] = useState(10);
+    const [time, setTime] = useState(delay);
     const setTimer = () => {
         if (!timerUse) {
             setTimerUse(true);
-            setTime(10);
+            setTime(delay);
             const id = setInterval(() => {
                 setTime(t => {
                     const newT = t-1;
@@ -137,7 +137,7 @@ export default function Register() {
             <p className="mt-5 mx-auto text-sm">{error}</p>
             <div className="grid grid-cols-2 gap-2 ">
                 <button onClick={sendVerification} type="submit" className="ml-auto bg-black text-white py-2 w-[60%] border-2 border-black font-bold hover:text-black hover:bg-white duration-150">Resend email</button>
-                <button type="submit" className="mr-auto text-black bg-white py-2 w-[60%] border-2 border-black font-bold hover:bg-black hover:text-white duration-150">Return to OLIX Reef</button>
+                <button onClick={() => router.push('/')} type="submit" className="mr-auto text-black bg-white py-2 w-[60%] border-2 border-black font-bold hover:bg-black hover:text-white duration-150">Return to OLIX Reef</button>
             </div>
         </div> }
     </>)

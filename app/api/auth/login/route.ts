@@ -12,8 +12,9 @@ export async function POST(request: Request) {
 
         return NextResponse.json(record);
     } catch (err: any) {
-        return new Response(
-            JSON.stringify({ error: err.message || err.toString(), ciao:"CIAO" }),
+        console.error(err.message || err.toString())
+        return NextResponse.json(
+            JSON.stringify(err.message || err.toString()),
             {
                 status: 500,
                 headers: {

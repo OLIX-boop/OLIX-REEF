@@ -25,7 +25,7 @@ const Component = () => {
             </div>
 
             <div className="text-white my-auto mr-[.3rem] flex justify-end">
-                <div className="mr-4 cursor-pointer">
+                <div className="mr-4 cursor-pointer" onClick={() => router.push('/auth/login')}>
                     <p className='text-xs' >Login / Signup</p>
                     <p className='text-xs font-bold' >My Account</p>
                 </div>
