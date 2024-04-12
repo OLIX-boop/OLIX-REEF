@@ -23,7 +23,7 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         <Toaster />
-        <Nav />
+        <Nav ip={process.env.NEXT_DB_ID || ''} />
         {children}
         <Footer />
       </body>

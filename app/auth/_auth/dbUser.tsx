@@ -30,8 +30,6 @@ export class DatabaseClient {
             if (exist.length > 0) 
                 throw new Error("Email already exists!");
     
-            
-            console.log("awwa")
             const result = await this.client.collection("users").create({
                 name,
                 email,
@@ -39,9 +37,6 @@ export class DatabaseClient {
                 passwordConfirm: password,
                 emailVisibility: true,
             });
-            console.log("awwa")
-
-        console.log(result)
 
         return result;
     }
@@ -65,25 +60,18 @@ export class DatabaseClient {
     // isAuthenticated takes cookieStore from the request to check for the required tokens in the cookie
     async isAuthenticated(cookieStore: ReadonlyRequestCookies) {
         const cookie = cookieStore.get('pb_auth');
-        if (!cookie) {
-            return false;
-        }
+
+        if (!cookie) 
+            return '';
 
         // loadFromCookie applies the cookie data before checking the user is authenticated
         this.client.authStore.loadFromCookie(cookie?.value || '');
-        return this.client.authStore.isValid || false
+        return this.client.authStore.model!.id || '';
     }
 
     // getUser is similar to isAuthenticated, the only difference is the returned data type
-    async getUser(cookieStore: ReadonlyRequestCookies) {
-        const cookie = cookieStore.get('pb_auth');
-        console.log(cookie)
-        if (!cookie) {
-            return false;
-        }
-
-        this.client.authStore.loadFromCookie(cookie?.value || '');
-        return this.client.authStore.model;
+    async getUser(id: string) {
+        return await this.client.collection('users').getOne(id, {});
     }
 }
 
