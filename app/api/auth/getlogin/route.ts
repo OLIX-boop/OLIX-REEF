@@ -1,17 +1,15 @@
 import db from "@/app/auth/_auth/dbUser";
+import { cookies } from 'next/headers';
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
     try {
-        const { email, password, name } = await request.json();
-        const result = await db.register(email, password, name);
-        
-        if (result) db.requestVerification(email);
-        
-        return NextResponse.json(result || {});
+        const cookiesStore = cookies();
+        const response = await db.getUser(cookiesStore);
+        return NextResponse.json(response);
     } catch (err: any) {
-        return new Response(
-            JSON.stringify({ error: err.message || err.toString() }),
+        return NextResponse.json(
+            JSON.stringify(err.message || err.toString()),
             {
                 status: 500,
                 headers: {

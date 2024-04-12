@@ -39,7 +39,6 @@ export default function Register() {
                 setSuccess(true);
 
 
-            // initialize for send verification loop
             setError('');
             setTimer();
         } catch (err) {
@@ -104,25 +103,25 @@ export default function Register() {
             <div className="grid grid-cols-2 w-[70%] mx-auto ">
                 <div>
                     <label className="mb-[-1vh]" htmlFor="name">First Name</label>
-                    <input required maxLength={10} className="border-2 mx-auto py-1 w-[90%] text-md hover:border-black duration-200" type="text" value={firstName} onChange={e => setFirstName(e.target.value || '')} id="name" />
+                    <input required maxLength={10} className="border-2 pl-2 mx-auto py-1 w-[90%] text-md hover:border-black duration-200" type="text" value={firstName} onChange={e => setFirstName(e.target.value || '')} id="name" />
                 </div>
 
                 <div>
                     <label className="mb-[-1vh]" htmlFor="name">Last Name</label>
-                    <input required maxLength={10} className="border-2 mx-auto w-[100%] py-1 text-md hover:border-black duration-200" type="text" value={lastName} onChange={e => setLastName(e.target.value || '')} id="lastname" />
+                    <input required maxLength={10} className="border-2 pl-2 mx-auto w-[100%] py-1 text-md hover:border-black duration-200" type="text" value={lastName} onChange={e => setLastName(e.target.value || '')} id="lastname" />
                 </div>
             </div>
 
             <label className="ml-[15%] mb-[-1vh]" htmlFor="email">Email</label>
-            <input required className="border-2 w-[70%] mx-auto py-1 text-md hover:border-black duration-200" type="email" value={email} onChange={e => setEmail(e.target.value || '')}  id="email" />
+            <input required className="border-2 w-[70%] pl-2 mx-auto py-1 text-md hover:border-black duration-200" type="email" value={email} onChange={e => setEmail(e.target.value || '')}  id="email" />
 
             <label className="ml-[15%] mb-[-1vh]" htmlFor="password">Password</label>
-            <input required minLength={8} onInput={e => handlePswLength(e)} className={"border-2 w-[70%] mx-auto py-1 text-md hover:border-black duration-200 "+(pswLength ? "" : "border-red-500 focus:outline-red-500")} id="password" value={password} onChange={e => setPassword(e.target.value || '')}  type="password" />
+            <input required minLength={8} onInput={e => handlePswLength(e)} className={"border-2 w-[70%] pl-2 mx-auto py-1 text-md hover:border-black duration-200 "+(pswLength ? "" : "border-red-500 focus:outline-red-500")} id="password" value={password} onChange={e => setPassword(e.target.value || '')}  type="password" />
             <p className="text-red-500 ml-[15%] text-sm">{!pswLength && "Password requires 8 characters minimum"}</p>
 
             <label className="ml-[15%] mb-[-1vh]" htmlFor="password">Confirm Password</label>
-            <input required className={"border-2 w-[70%] mx-auto py-1 text-md hover:border-black duration-200 " + (pswMatch ? "" : "border-red-500 focus:outline-red-500")} id="password" value={passwordConfirm} onChange={e => handlePswMatch(e.target.value)}  type="password" />
-            <p className="text-red-500 ml-[15%] text-sm">{(passwordConfirm.length > 0 && password.length > 0 && !pswMatch) ? "Passwords doesn't match" : ""}</p>
+            <input required className={"border-2 w-[70%] pl-2 mx-auto py-1 text-md hover:border-black duration-200 " + (pswMatch ? "" : "border-red-500 focus:outline-red-500")} id="password" value={passwordConfirm} onChange={e => handlePswMatch(e.target.value)}  type="password" />
+            <p className="text-red-500 ml-[15%] text-sm">{(passwordConfirm.length > 0 && password.length > 0 && !pswMatch) ? "Passwords don't match" : ""}</p>
 
             <button type="submit" className="mx-auto bg-black text-white py-2 w-[70%] border-2 border-black font-bold hover:text-black hover:bg-white duration-150">Register</button>
 

@@ -12,6 +12,17 @@ const Component = () => {
     const [qt, setQt] = useState(Cart.quantity);
     Cart.SetCartHook(setQt); // Initialize state for Cart
 
+    const Masuello = async () => {
+        const response = await fetch('/api/auth/getlogin', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+        });
+        const data = await response.json();
+        console.log(data)
+    }
+
+    Masuello()
+
     return (<>
         <div className="bg-black grid grid-cols-2 sm:grid-cols-3 justify-between align-center py-4 px-10">
             <div className="hidden sm:flex text-white my-auto gap-8">

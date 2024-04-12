@@ -25,33 +25,40 @@ export class DatabaseClient {
     }
     
     async register (email: string, password: string, name:string) {
-        const exist = await this.client.collection("users").getFirstListItem(`email="${email}"`);
+        
+        const exist = await this.client.collection("users").getFullList({filter:`email="${email}"`});
+            if (exist.length > 0) 
+                throw new Error("Email already exists!");
+    
             
-        if (exist) 
-            throw new Error("Email already exists!");
-            
-        return await this.client.collection("users").create({
-            name,
-            email,
-            password,
-            passwordConfirm: password,
-        });
+            console.log("awwa")
+            const result = await this.client.collection("users").create({
+                name,
+                email,
+                password,
+                passwordConfirm: password,
+                emailVisibility: true,
+            });
+            console.log("awwa")
+
+        console.log(result)
+
+        return result;
     }
 
     async requestVerification(email:string) {
         try {
-            return await this.client.collection('users').requestPasswordReset(email);;
+            return await this.client.collection('users').requestVerification(email);
         } catch (err) {
             console.log(err);
         }
     }
-
+    
     async requestPasswordReset(email:string) {
         try {
-            const res = await this.client.collection('users').requestVerification(email);
+            return await this.client.collection('users').requestPasswordReset(email);;
         } catch (err) {
             console.log(err);
-            
         }
     }
 
@@ -70,12 +77,13 @@ export class DatabaseClient {
     // getUser is similar to isAuthenticated, the only difference is the returned data type
     async getUser(cookieStore: ReadonlyRequestCookies) {
         const cookie = cookieStore.get('pb_auth');
+        console.log(cookie)
         if (!cookie) {
             return false;
         }
 
         this.client.authStore.loadFromCookie(cookie?.value || '');
-        return this.client.authStore.model ;
+        return this.client.authStore.model;
     }
 }
 
