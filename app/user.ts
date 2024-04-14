@@ -33,7 +33,7 @@ class UserData {
         this.login = true;
         this.data = data;
         this.id = data.id;
-    }
+    };
 
 }
 

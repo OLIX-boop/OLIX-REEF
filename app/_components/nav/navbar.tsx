@@ -23,6 +23,13 @@ interface LoginData {
     token?: string,
 }
 
+let updateLogin:(data:LoginData) => void;
+
+export function updateData(data:LoginData) {
+    if (updateLogin)
+        updateLogin(data);
+};
+
 const Component = ({ip}: {ip:string}) => {
     const router = useRouter();
     const [qt, setQt] = useState(Cart.quantity);
@@ -39,6 +46,11 @@ const Component = ({ip}: {ip:string}) => {
                 setLoggedIn(User.login);
                 setLogData(User.data);
             }
+        }
+
+        updateLogin = (data:LoginData) => {
+            setLoggedIn(true);
+            setLogData(data);
         }
 
         setUp();

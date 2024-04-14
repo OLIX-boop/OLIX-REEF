@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import React, { useState, useEffect } from "react";
-
+import { updateData } from "@/app/_components/nav/navbar";
 
 export default function Login() {
     const router = useRouter();
@@ -24,8 +24,10 @@ export default function Login() {
                 return setError(data.replaceAll('"', ''));
 
 
-            if (data?.token) 
+            if (data?.token) {
+                updateData(data);
                 router.push('/');
+            }
             
         } catch (err) {
             setEmail('error');

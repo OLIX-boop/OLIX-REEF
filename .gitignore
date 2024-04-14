@@ -40,3 +40,6 @@ pb_data/data.db
 pb_data/data.db-*
 /pb_data/data.db
 *.db
+pb_data/data.db
+pb_data/data.db
+pb_data/logs.db
