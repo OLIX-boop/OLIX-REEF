@@ -13,6 +13,21 @@ interface LoginData {
     token?: string,
 }
 
+export interface UserLoginData {
+    avatar?: string,
+    collectionId?: string,
+    collectionName?: string,
+    created?: string,
+    email?: string,
+    emailVisibility?: boolean,
+    id?: string,
+    name?: string,
+    updated?: string,
+    username?: string,
+    verified?: boolean,
+    token?: string,
+}
+
 class UserData {
     data:LoginData = {};
     id: string = '';
@@ -39,3 +54,4 @@ class UserData {
 
 
 export const User = new UserData();
+User.SetUpUser();

@@ -6,26 +6,11 @@ import { useRouter } from 'next/navigation'
 import { Cart } from '../cart/cart';
 import { useEffect, useState } from 'react';
 import DefaultUser from '../../../imgs/defaultUser.png'
-import {User} from '@/app/user';
+import {User, UserLoginData} from '@/app/user';
 
-interface LoginData {
-    avatar?: string,
-    collectionId?: string,
-    collectionName?: string,
-    created?: string,
-    email?: string,
-    emailVisibility?: boolean,
-    id?: string,
-    name?: string,
-    updated?: string,
-    username?: string,
-    verified?: boolean,
-    token?: string,
-}
+let updateLogin:(data:UserLoginData) => void;
 
-let updateLogin:(data:LoginData) => void;
-
-export function updateData(data:LoginData) {
+export function updateData(data:UserLoginData) {
     if (updateLogin)
         updateLogin(data);
 };
@@ -34,29 +19,21 @@ const Component = ({ip}: {ip:string}) => {
     const router = useRouter();
     const [qt, setQt] = useState(Cart.quantity);
     const [loggedIn, setLoggedIn] = useState<boolean>(false);
-    const [logData, setLogData] = useState<LoginData>({});
+    const [logData, setLogData] = useState<UserLoginData>({});
+
 
     Cart.SetCartHook(setQt); // Initialize state for Cart
 
     useEffect(() =>{
-        const setUp = async () => {
-            const error = await User.SetUpUser(); // initialize User
+        setLoggedIn(User.login);
+        setLogData(User.data);
 
-            if (!error) {
-                setLoggedIn(User.login);
-                setLogData(User.data);
-            }
-        }
-
-        updateLogin = (data:LoginData) => {
+        updateLogin = (data:UserLoginData) => {
             setLoggedIn(true);
             setLogData(data);
         }
+    }, [User])
 
-        setUp();
-    }, [])
-
-    console.log(User.data)
 
     
     return (<>
