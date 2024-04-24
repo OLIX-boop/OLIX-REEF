@@ -50,6 +50,13 @@ class UserData {
         this.id = data.id;
     };
 
+    getLogin = async () => {
+        const response = await fetch('/api/auth/getlogin', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+        });
+        return await response.json();
+    }
 }
 
 

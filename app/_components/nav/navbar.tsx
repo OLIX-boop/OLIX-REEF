@@ -34,6 +34,8 @@ const Component = ({ip}: {ip:string}) => {
         }
     }, [User])
 
+    console.log(logData)
+    console.log(loggedIn)
 
     
     return (<>

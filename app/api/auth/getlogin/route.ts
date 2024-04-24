@@ -6,31 +6,31 @@ export async function POST() {
     try {
         const cookiesStore = cookies();
         const id = await db.isAuthenticated(cookiesStore);
-
+        
         if (!id) 
             return NextResponse.json(
-                JSON.stringify("No login found."),
-                {
-                    status: 500,
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                }
-            )
-
-
-        const response = await db.getUser(id);
-
-        if (!response.verified) 
-            return NextResponse.json(
-                JSON.stringify("Account not verified."),
-                {
-                    status: 500,
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                }
-            )
+        JSON.stringify("No login found."),
+        {
+            status: 500,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        }
+    )
+    
+    
+    const response = await db.getUser(id);
+    
+    if (!response.verified) 
+        return NextResponse.json(
+    JSON.stringify("Account not verified."),
+    {
+        status: 500,
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    }
+)
 
 
         return NextResponse.json(response);
