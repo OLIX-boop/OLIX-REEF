@@ -23,15 +23,13 @@ export async function POST() {
     
     if (!response.verified) 
         return NextResponse.json(
-    JSON.stringify("Account not verified."),
-    {
-        status: 500,
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    }
-)
-
+        JSON.stringify("Account not verified."),
+        {
+            status: 500,
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
 
         return NextResponse.json(response);
     } catch (err: any) {

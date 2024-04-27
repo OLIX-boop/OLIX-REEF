@@ -25,17 +25,20 @@ const Component = ({ip}: {ip:string}) => {
     Cart.SetCartHook(setQt); // Initialize state for Cart
 
     useEffect(() =>{
-        setLoggedIn(User.login);
-        setLogData(User.data);
+        
+        const setup = async () => {
+            await User.SetUpUser(); // setup user login
+            setLoggedIn(User.login);
+            setLogData(User.data);
+        }
 
         updateLogin = (data:UserLoginData) => {
             setLoggedIn(true);
             setLogData(data);
         }
+        setup();
     }, [User])
 
-    console.log(logData)
-    console.log(loggedIn)
 
     
     return (<>
@@ -62,7 +65,7 @@ const Component = ({ip}: {ip:string}) => {
 
                 <div className="border-l border-white mr-4"></div>
                 <i className="fa-regular fa-cart-shopping text-2xl cursor-pointer"></i>
-                <span className='text-center h-[1%] bg-red-500 aspect-square text-xs ml-[-.3rem] rounded-full px-[.3rem]'>{qt}</span>
+                <span className='text-center h-[1%] bg-blue-500 aspect-square text-xs ml-[-.3rem] rounded-full px-[.3rem]'>{qt}</span>
             </div>
         </div>
     </>)

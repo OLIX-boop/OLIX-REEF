@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 
 const Footer = () => {
     const router = useRouter();
+
     return (<>
         <footer className="bg-black flex flex-col justify-center align-center mt-8 py-10 px-16 text-white">
             <div className="w-full flex justify-center gap-8 mb-3">

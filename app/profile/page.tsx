@@ -19,7 +19,6 @@ export default function Profile() {
         getData();
     }, [])
 
-    console.log(UserData)
 
 
     const disconnectUser = async () => {
@@ -55,7 +54,7 @@ export default function Profile() {
 
             </div>
             <div className="w-[85%] bg-white rounded-md px-10 py-8 shadow-md">
-                { page === "details" && UserData && <Details data={UserData} ip={process.env.NEXT_IP || ''}/> }
+                { page === "details" && UserData && <Details data={UserData} /> }
                 { page === "orders" && <Orders/> }
                 { page === "settings" && <Settings/> }
             </div>

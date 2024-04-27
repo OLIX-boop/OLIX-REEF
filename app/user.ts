@@ -34,7 +34,7 @@ class UserData {
     login: boolean = false;
     
     SetUpUser = async () => {
-        const response = await fetch('/api/auth/getlogin', {
+        const response = await fetch('/api/auth/getlog', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
         });
@@ -51,7 +51,7 @@ class UserData {
     };
 
     getLogin = async () => {
-        const response = await fetch('/api/auth/getlogin', {
+        const response = await fetch('/api/auth/getlog', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
         });
@@ -61,4 +61,3 @@ class UserData {
 
 
 export const User = new UserData();
-User.SetUpUser();

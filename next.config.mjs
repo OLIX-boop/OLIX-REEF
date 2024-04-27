@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    env: {
+        NEXT_DB_ID: process.env.NEXT_DB_ID
+    },
     images: {
         remotePatterns: [
             {
