@@ -54,9 +54,9 @@ class CartObj {
             type: 'SPS',
             updated: '2024-04-02 16:29:41.042Z'
           }
-        }]
+        }],
     ]);
-    quantity = 0;
+    quantity = 5;
     
     changeCartHook:React.Dispatch<React.SetStateAction<number>>|null = null;
 

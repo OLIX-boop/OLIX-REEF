@@ -74,6 +74,22 @@ input:-webkit-autofill:active{
   cursor: grab;
 } 
 
+.cart-scroll::-webkit-scrollbar {
+	width: .4rem;
+}
+.cart-scroll::-webkit-scrollbar-track {
+	background: white; 
+}
+.cart-scroll::-webkit-scrollbar-thumb {
+	background: black; 
+	border-radius:10px;
+}
+.cart-scroll::-webkit-scrollbar-thumb:hover {
+	background: rgb(139, 139, 139); 
+	cursor: grab;
+} 
+  
+
 /* Instagram icon */
 
 .insta:hover { 
