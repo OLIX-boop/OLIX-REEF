@@ -15,7 +15,7 @@ export function updateData(data:UserLoginData) {
         updateLogin(data);
 };
 
-const Component = ({ip}: {ip:string}) => {
+const Component = ({ip, setCart}: {ip:string, setCart: (b: boolean) => void}) => {
     const router = useRouter();
     const [qt, setQt] = useState(Cart.quantity);
     const [loggedIn, setLoggedIn] = useState<boolean>(false);
@@ -64,7 +64,7 @@ const Component = ({ip}: {ip:string}) => {
                 </div>}
 
                 <div className="border-l border-white mr-4"></div>
-                <i className="fa-regular fa-cart-shopping text-2xl cursor-pointer"></i>
+                <i onClick={() => setCart(true)} className="fa-regular fa-cart-shopping text-2xl cursor-pointer"></i>
                 <span className='text-center h-[1%] bg-blue-500 aspect-square text-xs ml-[-.3rem] rounded-full px-[.3rem]'>{qt}</span>
             </div>
         </div>

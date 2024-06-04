@@ -27,7 +27,7 @@ export default function Products({products, ip, type, Categories}: {products:Rec
             case 'low-high':
                 result.sort((a,b) => a.price - b.price);
                 break;
-            case 'hight-low':
+            case 'high-low':
                 result.sort((a,b) => b.price - a.price);
                 break;
             default:

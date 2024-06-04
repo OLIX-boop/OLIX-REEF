@@ -15,7 +15,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  const [cartActive, serCartActive] = useState(true);
+  const [cartActive, setCartActive] = useState(false);
 
   return (
     <html lang="en">
@@ -26,8 +26,8 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} ${cartActive && 'overflow-hidden'}`}>
         <Toaster />
-        {cartActive && <Cart/>}
-        <Nav ip={process.env.NEXT_DB_ID || ''} />
+        {cartActive && <Cart disableCart={setCartActive}/>}
+        <Nav setCart={setCartActive} ip={process.env.NEXT_DB_ID || ''} />
         {children}
         <Footer />
       </body>
