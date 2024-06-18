@@ -6,11 +6,16 @@ const Filters = ({Sort, Clear, Categories, type}: {Sort: (type:string) => void, 
   const route = type.toLowerCase();
   return (
     <>
-      <h1 className="font-bold text-xl mb-3">Categories</h1>
+      {Categories.length > 0 &&
+        <>
+          <h1 className="font-bold text-xl mb-3">Categories</h1>
 
-      <div className="border-gray-300 border-[1px] rounded-md p-3">
-        {Categories.map((e, key) => <p key={key} onClick={() => router.push(`/${route}?category=${e}`)}>{e}</p>)}
-      </div>
+          <div className="border-gray-300 border-[1px] rounded-md p-3">
+            {Categories.map((e, key) => <p key={key} onClick={() => router.push(`/${route}?category=${e}`)}>{e}</p>)}
+          </div>
+        </>
+      }
+
 
       <div>
         <h1 className="font-bold text-lg mt-3 ">Sort By</h1>

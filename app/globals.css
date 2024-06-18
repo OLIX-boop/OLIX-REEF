@@ -284,10 +284,10 @@ input[type=number]::placeholder {
 	}
 }
 
-/*  */
+/* category filter */
 @keyframes filtro {
 	0% {
-		max-height: 10%;
+		max-height: 100%;
 	}
 	100% {
 		max-height: 0;
@@ -299,13 +299,41 @@ input[type=number]::placeholder {
 		max-height: 0;
 	}
 	100% {
-		max-height: 10%;
+		max-height: 100%;
 	}
 }
 .filtro {
-	animation: filtro .5s ease-in-out forwards;
+	animation: filtro .9s ease-in-out forwards;
 }
 
 .filtro.nascosto {
-	animation: nascosto .5s ease-in-out forwards;
+	animation: nascosto .9s ease-in-out forwards;
+}
+
+/* Cart Slide in Animation */
+
+@keyframes slideIn {
+	0% {
+		margin-right: -35%;
+	}
+	100% {
+		margin-right: 0;
+	}
+}
+
+@keyframes slideOut {
+	0% {
+		margin-right: 0;
+	}
+	100% {
+		margin-right: -35%;
+	}
+}
+
+.cartAnim {
+	animation: slideIn .3s ease-in-out forwards;
+}
+
+.closeCartAnim {
+	animation: slideOut .15s ease-in-out forwards;
 }

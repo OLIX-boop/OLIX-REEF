@@ -103,32 +103,32 @@ export default function Register() {
             <div className="grid grid-cols-2 w-[70%] mx-auto ">
                 <div>
                     <label className="mb-[-1vh]" htmlFor="name">First Name</label>
-                    <input required maxLength={10} className="border-2 pl-2 mx-auto py-1 w-[90%] text-md hover:border-black duration-200" type="text" value={firstName} onChange={e => setFirstName(e.target.value || '')} id="name" />
+                    <input required maxLength={10} className="px-2 border-2 pl-2 mx-auto py-1 w-[90%] text-md border-gray-600 hover:border-black duration-200" type="text" value={firstName} onChange={e => setFirstName(e.target.value || '')} id="name" />
                 </div>
 
                 <div>
                     <label className="mb-[-1vh]" htmlFor="name">Last Name</label>
-                    <input required maxLength={10} className="border-2 pl-2 mx-auto w-[100%] py-1 text-md hover:border-black duration-200" type="text" value={lastName} onChange={e => setLastName(e.target.value || '')} id="lastname" />
+                    <input required maxLength={10} className="px-2 border-2 pl-2 mx-auto w-[100%] py-1 text-md border-gray-600 hover:border-black duration-200" type="text" value={lastName} onChange={e => setLastName(e.target.value || '')} id="lastname" />
                 </div>
             </div>
 
             <label className="ml-[15%] mb-[-1vh]" htmlFor="email">Email</label>
-            <input required className="border-2 w-[70%] pl-2 mx-auto py-1 text-md hover:border-black duration-200" type="email" value={email} onChange={e => setEmail(e.target.value || '')}  id="email" />
+            <input required className="px-2 border-2 w-[70%] pl-2 mx-auto py-1 text-md border-gray-600 hover:border-black duration-200" type="email" value={email} onChange={e => setEmail(e.target.value || '')}  id="email" />
 
             <label className="ml-[15%] mb-[-1vh]" htmlFor="password">Password</label>
-            <input required minLength={8} onInput={e => handlePswLength(e)} className={"border-2 w-[70%] pl-2 mx-auto py-1 text-md hover:border-black duration-200 "+(pswLength ? "" : "border-red-500 focus:outline-red-500")} id="password" value={password} onChange={e => setPassword(e.target.value || '')}  type="password" />
+            <input required minLength={8} onInput={e => handlePswLength(e)} className={"px-2 border-2 w-[70%] pl-2 mx-auto py-1 text-md border-gray-600 hover:border-black duration-200 "+(pswLength ? "" : "border-red-500 focus:outline-red-500")} id="password" value={password} onChange={e => setPassword(e.target.value || '')}  type="password" />
             <p className="text-red-500 ml-[15%] text-sm">{!pswLength && "Password requires 8 characters minimum"}</p>
 
             <label className="ml-[15%] mb-[-1vh]" htmlFor="password">Confirm Password</label>
-            <input required className={"border-2 w-[70%] pl-2 mx-auto py-1 text-md hover:border-black duration-200 " + (pswMatch ? "" : "border-red-500 focus:outline-red-500")} id="password" value={passwordConfirm} onChange={e => handlePswMatch(e.target.value)}  type="password" />
+            <input required className={"px-2 border-2 w-[70%] pl-2 mx-auto py-1 text-md border-gray-600 hover:border-black duration-200 " + (pswMatch ? "" : "border-red-500 focus:outline-red-500")} id="password" value={passwordConfirm} onChange={e => handlePswMatch(e.target.value)}  type="password" />
             <p className="text-red-500 ml-[15%] text-sm">{(passwordConfirm.length > 0 && password.length > 0 && !pswMatch) ? "Passwords don't match" : ""}</p>
 
-            <button type="submit" className="mx-auto bg-black text-white py-2 w-[70%] border-2 border-black font-bold hover:text-black hover:bg-white duration-150">Register</button>
+            <button type="submit" className="mx-auto bg-black text-white py-2 w-[70%] px-2 border-2 border-black font-bold hover:text-black hover:bg-white duration-150">Register</button>
 
-            <p onClick={() => router.push('/auth/login')} className="mx-auto cursor-pointer">Already registered? Login</p>
+            <p className="mx-auto flex">Already registered?&nbsp; <p className="cursor-pointer font-bold" onClick={() => router.push('/auth/login')}>Login</p></p>
         </form>}
 
-        {success && <div className="flex flex-col gap-4 w-[50%] my-[30vh] m-auto border-2 border-black justify-center align-middle py-9">
+        {success && <div className="flex flex-col gap-4 w-[50%] my-[30vh] m-auto px-2 border-2 border-black justify-center align-middle py-9">
 
             <h1 className="text-2xl font-bold mx-auto">Verify your email!</h1>
             <p className=" mx-auto w-[80%] text-center mb-[-1vh]">Thanks for creating an account! To ensure it&apos;s yours, we&apos;ve sent a verification email to <strong>{email}</strong>. Click the link in that email to complete your account setup. Didn&apos;t see it? Check your spam folder or request a new verification email below. Once verified, you&apos;ll be ready to use your account!</p>

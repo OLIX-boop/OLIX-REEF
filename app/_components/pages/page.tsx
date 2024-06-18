@@ -15,10 +15,22 @@ pb.autoCancellation(false);
 
 
 export default async function Page({searchParams, type, desc, Banner, Categories}: {searchParams:Params, type:string, desc:string, Banner:StaticImageData, Categories:Array<string>}) {
+    const getNewCorals = async () =>  {
+        const date = new Date();
+        date.setDate(new Date().getDate()-7);
+
+        
+        const result = await pb.collection('products').getFullList({
+            filter: `created >= "${date.toISOString()}"`,
+        });
+        
+        if (result.length >= 4) return result;
+        else return (await pb.collection('products').getList(1, 8)).items;
+    };
     const getProducts = async (category: string) => await pb.collection('products').getFullList({filter: `type = "${type}" ${category}`});
 
     const filter = searchParams.category ? `&& category = "${searchParams.category}"` : "";
-    const products = await getProducts(filter);
+    const products = type == "NEWCORALS" ? await getNewCorals() : await getProducts(filter);
     return (<>
         <div className="absolute z-[-1] w-full" >
             <Image className="w-full" src={Banner} alt={type} />

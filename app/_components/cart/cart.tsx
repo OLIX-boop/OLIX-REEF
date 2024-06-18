@@ -1,6 +1,6 @@
 import { RecordModel } from "pocketbase";
 
-interface Product {
+export interface Product {
     quantity: number,
     prod: RecordModel,
 }

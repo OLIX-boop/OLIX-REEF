@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { User, UserLoginData } from "../user";
 import Details from "./_pages/details/details";
-import Settings from "./_pages/settings/settings";
+import Addresses from "./_pages/addresses/addresses";
 import Orders from "./_pages/orders/orders";
 import { useRouter } from "next/navigation";
 
@@ -18,8 +18,6 @@ export default function Profile() {
         };
         getData();
     }, [])
-
-
 
     const disconnectUser = async () => {
         await fetch('/api/auth/logout', { method: 'POST', headers: {'Content-Type': 'application/json'}});
@@ -44,11 +42,11 @@ export default function Profile() {
                 <button 
                     onClick={() => setPage('settings')}
                     className={`text-left pl-4 mt-3 text-black duration-300 font-bold w-full rounded-[4px] py-1 border-2 ${page === 'settings' ? " border-black" : "hover:bg-black hover:text-white border-[#F5F6F8]"}`}
-                ><i className="fa-solid fa-gear mr-2"></i>Account Settings</button>
+                ><i className="fa-solid fa-map-pin mr-2"></i>My Addres</button>
 
                 <button 
                     onClick={disconnectUser}
-                    className={`text-left pl-4 mt-3 text-black duration-300 font-bold w-full rounded-[4px] py-1 border-2 ${page === 'settings' ? " border-black" : "hover:bg-black hover:text-white border-[#F5F6F8]"}`}
+                    className={`text-left pl-4 mt-3 text-black duration-300 font-bold w-full rounded-[4px] py-1 border-2 hover:bg-black hover:text-white border-[#F5F6F8]`}
                 ><i className="fa-solid fa-right-from-bracket mr-2"></i>Logout</button>
 
 
@@ -56,7 +54,7 @@ export default function Profile() {
             <div className="w-[85%] bg-white rounded-md px-10 py-8 shadow-md">
                 { page === "details" && UserData && <Details data={UserData} /> }
                 { page === "orders" && <Orders/> }
-                { page === "settings" && <Settings/> }
+                { page === "settings" && <Addresses/> }
             </div>
         </div>
     </div>)

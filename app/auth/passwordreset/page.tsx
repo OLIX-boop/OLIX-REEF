@@ -63,7 +63,7 @@ export default function PasswordReset({searchParams}: {searchParams:Params}) {
             <h1 className="text-2xl font-bold mx-auto mb-2">Reset Password</h1>
 
             <label className="ml-[15%] mb-[-1vh]" htmlFor="email">Insert your email:</label>
-            <input required onChange={e => setEmail(e.target.value || '')} className="border-2 w-[70%] mx-auto py-1 text-md hover:border-black duration-200 pl-2" type="email" id="email" value={email} />
+            <input required onChange={e => setEmail(e.target.value || '')} className="border-2 border-gray-600 outline-none w-[70%] mx-auto py-1 text-md hover:border-black duration-200 pl-2" type="email" id="email" value={email} />
 
             <p className="ml-[15%] mb-[-1vh] text-sm w-[70%]">{msg}</p>
 

@@ -27,9 +27,13 @@ const Component = ({ip, setCart}: {ip:string, setCart: (b: boolean) => void}) =>
     useEffect(() =>{
         
         const setup = async () => {
-            await User.SetUpUser(); // setup user login
-            setLoggedIn(User.login);
-            setLogData(User.data);
+            setTimeout(async () => {
+                await User.SetUpUser(); // setup user login
+                setTimeout(() => {
+                    setLoggedIn(User.login);
+                    setLogData(User.data);
+                }, 100);
+            }, 100);
         }
 
         updateLogin = (data:UserLoginData) => {
@@ -38,8 +42,6 @@ const Component = ({ip, setCart}: {ip:string, setCart: (b: boolean) => void}) =>
         }
         setup();
     }, [User])
-
-
     
     return (<>
         <div className="bg-black grid grid-cols-2 sm:grid-cols-3 justify-between align-center py-4 px-10">
@@ -59,8 +61,8 @@ const Component = ({ip, setCart}: {ip:string, setCart: (b: boolean) => void}) =>
                     <p className='text-xs font-bold' >My Account</p>
                 </div>}
 
-                {loggedIn && <div onClick={() => router.push('/profile')} className="h-6 w-6 overflow-hidden rounded-full mr-4 cursor-pointer">
-                    <Image src={logData.avatar === '' ? DefaultUser : `http://${ip}/api/files/_pb_users_auth_/${logData.id}/${logData.avatar}`} alt='Profile' width={500} height={500}/>
+                {loggedIn && <div onClick={() => router.push('/profile')} className="h-6 w-6 overflow-hidden rounded-full aspect-square mr-4 cursor-pointer flex items-center justify-center">
+                    <i className="fa-solid fa-user text-2xl"></i>
                 </div>}
 
                 <div className="border-l border-white mr-4"></div>

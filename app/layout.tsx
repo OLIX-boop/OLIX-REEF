@@ -17,6 +17,9 @@ export default function RootLayout({
 
   const [cartActive, setCartActive] = useState(false);
 
+  const closeCart = () => 
+    setTimeout(()=> setCartActive(false), 150);
+
   return (
     <html lang="en">
       <head>
@@ -26,7 +29,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} ${cartActive && 'overflow-hidden'}`}>
         <Toaster />
-        {cartActive && <Cart disableCart={setCartActive}/>}
+        {cartActive && <Cart disableCart={closeCart}/>}
         <Nav setCart={setCartActive} ip={process.env.NEXT_DB_ID || ''} />
         {children}
         <Footer />
