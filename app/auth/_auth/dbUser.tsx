@@ -73,6 +73,23 @@ export class DatabaseClient {
     async getUser(id: string) {
         return await this.client.collection('users').getOne(id, {});
     }
+
+    async setUserInfo(id:string, data: {[key: string]: any}) {
+        try {
+            const record = await this.client.collection('users').getOne(id, {});
+
+            if (record.name_chaged_time !== '') { // you can change name every 24h
+                const lastChangeDate = new Date(record.name_chaged_time);
+                const oneDayAgo = Date.now() - 24 * 60 * 60 * 1000;
+                if (lastChangeDate.getTime() > oneDayAgo)
+                    throw new Error("You can change password once every 24 hours");
+            }
+
+           return  await this.client.collection("users").update(id, {...data, name_chaged_time: new Date().toISOString()});
+        } catch (err) {
+            throw err;
+        }
+    }
 }
 
 // We create an instance of the DatabaseClient that can be used throughout the app.
