@@ -1,6 +1,5 @@
 import PocketBase from 'pocketbase';
 import { ReadonlyRequestCookies } from 'next/dist/server/web/spec-extension/adapters/request-cookies';
-import { error } from 'console';
 
 export const POCKET_BASE_URL = "http://127.0.0.1:8090";
 
@@ -20,7 +19,7 @@ export class DatabaseClient {
             
             return result;
         } catch (err) {
-            throw new Error("Invalid email or password");
+            throw new Error("Incorrect Password");
         }
     }
     
@@ -74,6 +73,7 @@ export class DatabaseClient {
         return await this.client.collection('users').getOne(id, {});
     }
 
+    // setUserInfo updates user's name and email
     async setUserInfo(id:string, data: {[key: string]: any}) {
         try {
             const record = await this.client.collection('users').getOne(id, {});
@@ -82,11 +82,34 @@ export class DatabaseClient {
                 const lastChangeDate = new Date(record.name_chaged_time);
                 const oneDayAgo = Date.now() - 24 * 60 * 60 * 1000;
                 if (lastChangeDate.getTime() > oneDayAgo)
+                    throw new Error("You can change info once every 24 hours");
+            }
+
+           return await this.client.collection("users").update(id, {...data, name_chaged_time: new Date().toISOString()});
+        } catch (err) {
+            throw err;
+        }
+    }
+
+    async changeUserPassword (email:string, password: string, newPassword: string) {
+        try {
+            const result = await this.client.collection("users").authWithPassword(email, password);
+            
+            if (!result?.token) //checks if password is correct
+                throw new Error("Incorrect Password");
+
+            if (result.record.psw_changed_time !== '') { // you can change name every 24h
+                const lastChangeDate = new Date(result.record.psw_changed_time);
+                const oneDayAgo = Date.now() - 24 * 60 * 60 * 1000;
+                if (lastChangeDate.getTime() > oneDayAgo)
                     throw new Error("You can change password once every 24 hours");
             }
 
-           return  await this.client.collection("users").update(id, {...data, name_chaged_time: new Date().toISOString()});
-        } catch (err) {
+            return await this.client.collection("users").update(result.record.id, {oldPassword: password, password: newPassword, passwordConfirm: newPassword, psw_changed_time: new Date().toISOString()});
+        } catch (err:any) {
+            if(err?.response?.code === 400)
+                throw new Error("Incorrect Password");
+
             throw err;
         }
     }
