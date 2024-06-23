@@ -1,26 +1,25 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;  
+@tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active{
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
-	font-family: "Varela Round", sans-serif !important;
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+  font-family: "Varela Round", sans-serif !important;
 }
 
 /* Parallax BG */
 
 .bgText {
-	color: rgba(255, 255, 255, 0.523);
-	font-size: 8.5vw;
-	font-family: "Varela Round", sans-serif;
-	font-weight: 400;
-	font-style: normal;
+  color: rgba(255, 255, 255, 0.523);
+  font-size: 8.5vw;
+  font-family: "Varela Round", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .bg {
@@ -33,12 +32,12 @@ input:-webkit-autofill:active{
   min-height: 90%;
   background-repeat: no-repeat;
   background-size: cover;
-  
+
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  
+
   color: rgba(255, 255, 255, 0.523);
   display: flex;
   align-items: center;
@@ -49,51 +48,55 @@ input:-webkit-autofill:active{
   font-style: normal;
 }
 
-@media only screen and (max-width: 768px){
-	.bg {
-		background-position-y: -40vw;
-	}
+@media only screen and (max-width: 768px) {
+  .bg {
+    background-position-y: -40vw;
+  }
 }
-
-
 
 /* Scrollbar */
 
 ::-webkit-scrollbar {
-  width: .4rem;
+  width: 0.4rem;
 }
 ::-webkit-scrollbar-track {
-  background: black; 
+  background: black;
 }
-  ::-webkit-scrollbar-thumb {
-  background: white; 
-  border-radius:10px;
+::-webkit-scrollbar-thumb {
+  background: white;
+  border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(139, 139, 139); 
+  background: rgb(139, 139, 139);
   cursor: grab;
-} 
+}
 
 .cart-scroll::-webkit-scrollbar {
-	width: .4rem;
+  width: 0.4rem;
 }
 .cart-scroll::-webkit-scrollbar-track {
-	background: white; 
+  background: white;
 }
 .cart-scroll::-webkit-scrollbar-thumb {
-	background: black; 
-	border-radius:10px;
+  background: black;
+  border-radius: 10px;
 }
 .cart-scroll::-webkit-scrollbar-thumb:hover {
-	background: rgb(139, 139, 139); 
-	cursor: grab;
-} 
-  
+  background: rgb(139, 139, 139);
+  cursor: grab;
+}
 
 /* Instagram icon */
 
-.insta:hover { 
-  background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+.insta:hover {
+  background: -webkit-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -101,35 +104,38 @@ input:-webkit-autofill:active{
 /* CATEGORY */
 
 .category-text:hover {
-  background: rgb(20,251,245);
-  background: linear-gradient(90deg, rgba(20,251,245,1) 16%, rgba(28,160,245,1) 100%, rgba(68,0,255,1) 100%);
+  background: rgb(20, 251, 245);
+  background: linear-gradient(
+    90deg,
+    rgba(20, 251, 245, 1) 16%,
+    rgba(28, 160, 245, 1) 100%,
+    rgba(68, 0, 255, 1) 100%
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 figure > * {
   grid-area: 1/1;
-  transition: .4s;
+  transition: 0.4s;
 }
 
 figure > div > img {
-	grid-area: 1/1;
-	transition: .4s;
-  }
+  grid-area: 1/1;
+  transition: 0.4s;
+}
 figure figcaption {
-	width: 100%;
-	overflow: hidden;
-  background: var(--c,rgba(158, 158, 158, 0.6));
-  clip-path: inset(0 var(--_i,100%) 0 0);
-  -webkit-mask:
-    linear-gradient(#000 0 0),
-    linear-gradient(#000 0 0);
+  width: 100%;
+  overflow: hidden;
+  background: var(--c, rgba(158, 158, 158, 0.6));
+  clip-path: inset(0 var(--_i, 100%) 0 0);
+  -webkit-mask: linear-gradient(#000 0 0), linear-gradient(#000 0 0);
   -webkit-mask-composite: xor;
   -webkit-mask-clip: text, padding-box;
   margin: -1px;
   font-size: 3vw !important;
 }
-figure:hover figcaption{
+figure:hover figcaption {
   --_i: 0%;
 }
 figure:hover div img {
@@ -139,7 +145,7 @@ figure:hover div img {
 /* add to cart */
 
 .addCart:hover > * {
-  transition: all .5s ease;
+  transition: all 0.5s ease;
 }
 .addCart:hover > :nth-child(1) {
   border-top-color: black;
@@ -164,176 +170,262 @@ input[type="number"] {
   appearance: textfield;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
-input[type=number]::placeholder {
-	font-size: .8rem;
-	padding: 0 .3rem;	
+input[type="number"]::placeholder {
+  font-size: 0.8rem;
+  padding: 0 0.3rem;
 }
-
 
 /* add to cart */
 
-
 .cart-button {
-	background-color: #4834d4;
-	outline: none;
-	cursor: pointer;
-	color: #fff;
-	transition: .3s ease-in-out;
-	overflow: hidden;
+  background-color: #4834d4;
+  outline: none;
+  cursor: pointer;
+  color: #fff;
+  transition: 0.3s ease-in-out;
+  overflow: hidden;
 }
 .cart-button:hover {
-	background-color: #35269b;
+  background-color: #35269b;
 }
 .cart-button:active {
-	transform: scale(.9);
+  transform: scale(0.9);
 }
 
 .cart-button .fa-shopping-cart {
-	position: absolute;
-	z-index: 2;
-	top: 50%;
-	left: -10%;
-	font-size: 2em;
-	transform: translate(-50%,-50%);
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: -10%;
+  font-size: 2em;
+  transform: translate(-50%, -50%);
 }
 .cart-button .fa-box {
-	position: absolute;
-	z-index: 3;
-	top: -20%;
-	left: 52%;
-	font-size: 1.2em;
-	transform: translate(-50%,-50%);
+  position: absolute;
+  z-index: 3;
+  top: -20%;
+  left: 52%;
+  font-size: 1.2em;
+  transform: translate(-50%, -50%);
 }
 .cart-button span {
-	position: absolute;
-	z-index: 3;
-	left: 50%;
-	top: 50%;
-	font-size: 1.2em;
-	color: #fff;
-	transform: translate(-50%,-50%);
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  font-size: 1.2em;
+  color: #fff;
+  transform: translate(-50%, -50%);
 }
 .cart-button span.add-to-cart {
-	opacity: 1;
-	font-size: 2vh;
+  opacity: 1;
+  font-size: 2vh;
 }
 .cart-button span.added {
-	opacity: 0;
+  opacity: 0;
 }
-
 
 .cart-button.clicked .fa-shopping-cart {
-	animation: cart 1.5s ease-in-out forwards;
+  animation: cart 1.5s ease-in-out forwards;
 }
 .cart-button.clicked .fa-box {
-	animation: box 1.5s ease-in-out forwards;
+  animation: box 1.5s ease-in-out forwards;
 }
 .cart-button.clicked span.add-to-cart {
-	animation: txt1 3s ease-in-out forwards;
+  animation: txt1 3s ease-in-out forwards;
 }
 .cart-button.clicked span.added {
-	animation: txt2 1.5s ease-in-out forwards;
+  animation: txt2 1.5s ease-in-out forwards;
 }
 
 @keyframes cart {
-	0% {
-		left: -10%;
-	}
-	40%, 60% {
-		left: 50%;
-	}
-	100% {
-		left: 110%;
-	}
+  0% {
+    left: -10%;
+  }
+  40%,
+  60% {
+    left: 50%;
+  }
+  100% {
+    left: 110%;
+  }
 }
 @keyframes box {
-	0%, 40% {
-		top: -20%;
-	}
-	60% {
-		top: 40%;
-		left: 52%;
-	}
-	100% {
-		top: 40%;
-		left: 112%;
-	}
+  0%,
+  40% {
+    top: -20%;
+  }
+  60% {
+    top: 40%;
+    left: 52%;
+  }
+  100% {
+    top: 40%;
+    left: 112%;
+  }
 }
 @keyframes txt1 {
-	0% {
-		opacity: 1;
-	}
-	1%, 50% {
-		opacity: 0;
-	}
-	60%, 100% {
-		opacity: 1;
-	}
+  0% {
+    opacity: 1;
+  }
+  1%,
+  50% {
+    opacity: 0;
+  }
+  60%,
+  100% {
+    opacity: 1;
+  }
 }
 @keyframes txt2 {
-	0%, 80% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 1;
-	}
+  0%,
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 /* category filter */
 @keyframes filtro {
-	0% {
-		max-height: 100%;
-	}
-	100% {
-		max-height: 0;
-	}
+  0% {
+    max-height: 100%;
+  }
+  100% {
+    max-height: 0;
+  }
 }
 
 @keyframes nascosto {
-	0% {
-		max-height: 0;
-	}
-	100% {
-		max-height: 100%;
-	}
+  0% {
+    max-height: 0;
+  }
+  100% {
+    max-height: 100%;
+  }
 }
 .filtro {
-	animation: filtro .9s ease-in-out forwards;
+  animation: filtro 0.9s ease-in-out forwards;
 }
 
 .filtro.nascosto {
-	animation: nascosto .9s ease-in-out forwards;
+  animation: nascosto 0.9s ease-in-out forwards;
 }
 
 /* Cart Slide in Animation */
 
 @keyframes slideIn {
-	0% {
-		margin-right: -35%;
-	}
-	100% {
-		margin-right: 0;
-	}
+  0% {
+    margin-right: -35%;
+  }
+  100% {
+    margin-right: 0;
+  }
 }
 
 @keyframes slideOut {
-	0% {
-		margin-right: 0;
-	}
-	100% {
-		margin-right: -35%;
-	}
+  0% {
+    margin-right: 0;
+  }
+  100% {
+    margin-right: -35%;
+  }
 }
 
 .cartAnim {
-	animation: slideIn .3s ease-in-out forwards;
+  animation: slideIn 0.3s ease-in-out forwards;
 }
 
 .closeCartAnim {
-	animation: slideOut .15s ease-in-out forwards;
+  animation: slideOut 0.15s ease-in-out forwards;
+}
+
+/* Shipping progress bar */
+
+.margin-area, .msgs {
+  position: relative;
+  text-align: center;
+  font-size: .88rem;
+}
+.dot {
+  height: 1.5rem;
+  width: 1.5rem;
+  position: absolute;
+  background: #000;
+  border-radius: 50%;
+  top: .8rem;
+  color: #fff;
+  line-height: 30px;
+  z-index: 9999;
+  &.one {
+    left: 5.5%;
+    background: #0c84d9;
+  }
+  &.two {
+    left: 32%;
+    background: #0c84d9;
+  }
+  &.three {
+    left: 58.6%;
+    background: #bbb;
+    color: #ffd800;
+  }
+  &.four {
+    left: 85.4%;
+    background: #bbb;
+    color: #ffd800;
+  }
+} 
+.progress-bar {
+  position: absolute;
+  height: 10px;
+  width: 26.7%;
+  top: 20px;
+  left: 8%;
+  background: #bbb;
+  &.first {
+    background: #0c84d9;
+  }
+  &.second {
+    left: 34.8%;
+  }
+  &.third {
+    left: 61.5%;
+  }
+}
+.msgs {
+  display: flex;
+  margin-top: 2.3rem;
+  gap: 1.6rem;
+}
+.message {
+  width: 6rem;
+  &.message-2 {
+    left: 20%;
+  }
+  &.message-3 {
+    left: 50%;
+  }
+  &.message-4 {
+    left: 80%;
+  }
+}
+.status {
+  text-align: center;
+  color: black;
+}
+a {
+  color: #0c84d9;
+  text-decoration: none;
+  font-weight: bold;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+  }
 }

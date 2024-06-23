@@ -98,7 +98,7 @@ export default function Register() {
         {!success && <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-[30%] mt-[10vh] m-auto border-2 border-black justify-center align-middle py-9">
             <h1 className="text-2xl font-bold mx-auto">Register</h1>
 
-            <p className="ml-[15%] mb-[-1vh]">{error}</p>
+            {error.length > 0 && <p className=" text-red-600 border-2 border-red-600 rounded-md p-2 bg-red-200 w-[70%] m-auto text-sm">&nbsp;{error}</p>}
 
             <div className="grid grid-cols-2 w-[70%] mx-auto ">
                 <div>

@@ -91,6 +91,12 @@ export class DatabaseClient {
         }
     }
 
+    /*
+    changeUserPassword first checks:
+        - if current password is correct, 
+        - if last password change date is at least 24h ago
+    then it procedes to change the password and to update pass change date
+    */
     async changeUserPassword (email:string, password: string, newPassword: string) {
         try {
             const result = await this.client.collection("users").authWithPassword(email, password);
@@ -113,6 +119,19 @@ export class DatabaseClient {
             throw err;
         }
     }
+
+        // getUserOrders doesn't need any explaination
+        async getUserOrders(id:string) {
+            try {
+                return await this.client.collection('orders').getFullList({
+                    filter: `user.id = "${id}"`,
+                    requestKey: null
+                });
+            } catch (err) {
+                console.log(err)
+                throw err;
+            }
+        }
 }
 
 // We create an instance of the DatabaseClient that can be used throughout the app.
