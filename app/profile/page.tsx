@@ -5,6 +5,7 @@ import Details from "./_pages/details/details";
 import Addresses from "./_pages/addresses/addresses";
 import Orders from "./_pages/orders/orders";
 import { useRouter } from "next/navigation";
+import { updateData } from "@/app/_components/nav/navbar";
 
 export default function Profile() {
     const [UserData, setUserData] = useState<UserLoginData>();
@@ -20,6 +21,7 @@ export default function Profile() {
     }, [])
 
     const disconnectUser = async () => {
+        updateData(null);
         await fetch('/api/auth/logout', { method: 'POST', headers: {'Content-Type': 'application/json'}});
         router.push('/');
     }

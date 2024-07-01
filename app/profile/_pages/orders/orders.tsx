@@ -63,8 +63,8 @@ export default function Orders({data}:{data:UserLoginData}) {
                 orders.map((value:Order) => 
                 <div key={value.id} className="grid grid-cols-3 gap-3 border-2 border-gray-300 py-2">
                     <div className="py-3">
-                        <div className="status">Package Tracking: <a href="#">123456789</a></div>
-                        <div className="margin-area ml-2">
+                        <div className="status text-center">Package Tracking: <a className=" text-blue-500 font-bold no-underline hover:underline focus:underline" href="#">123456789</a></div>
+                        <div className="relative text-center text-sm ml-2">
                             <div className="dot one"></div>
                             <div className="dot two"></div>
                             <div className="dot three"></div>
@@ -73,11 +73,11 @@ export default function Orders({data}:{data:UserLoginData}) {
                             <div className="progress-bar second"></div>
                             <div className="progress-bar third"></div>
                         </div>
-                        <div className="msgs">
-                                <div className="message message-1">Picked up</div>
-                                <div className="message message-2">Arrived at USPS facility</div>
-                                <div className="message message-3">Out for delivery</div>
-                                <div className="message message-4">Delivered</div>
+                        <div className="relative text-center text-sm flex gap-7 mt-10">
+                            <div className="w-24 left-0">Picked up</div>
+                            <div className="w-24 left-[20%]">Arrived at USPS facility</div>
+                            <div className="w-24 left-[50%]">Out for delivery</div>
+                            <div className="w-24 left-[80%]">Delivered</div>
                         </div>
                     </div>
 

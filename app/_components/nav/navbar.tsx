@@ -8,19 +8,16 @@ import { useEffect, useState } from 'react';
 import DefaultUser from '../../../imgs/defaultUser.png'
 import {User, UserLoginData} from '@/app/user';
 
-let updateLogin:(data:UserLoginData) => void;
+let updateLogin:(data:UserLoginData|null) => void;
 
-export function updateData(data:UserLoginData) {
-    if (updateLogin)
-        updateLogin(data);
+export function updateData(data:UserLoginData|null) {
+    updateLogin(data);
 };
 
 const Component = ({ip, setCart}: {ip:string, setCart: (b: boolean) => void}) => {
     const router = useRouter();
     const [qt, setQt] = useState(Cart.quantity);
     const [loggedIn, setLoggedIn] = useState<boolean>(false);
-    const [logData, setLogData] = useState<UserLoginData>({});
-
 
     Cart.SetCartHook(setQt); // Initialize state for Cart
 
@@ -31,15 +28,17 @@ const Component = ({ip, setCart}: {ip:string, setCart: (b: boolean) => void}) =>
                 await User.SetUpUser(); // setup user login
                 setTimeout(() => {
                     setLoggedIn(User.login);
-                    setLogData(User.data);
                 }, 100);
             }, 100);
         }
 
-        updateLogin = (data:UserLoginData) => {
-            setLoggedIn(true);
-            setLogData(data);
+        updateLogin = (data:UserLoginData|null) => {
+            if (data)
+                setLoggedIn(true);
+            else
+                setLoggedIn(false);
         }
+
         setup();
     }, [User])
     

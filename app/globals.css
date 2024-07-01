@@ -348,11 +348,6 @@ input[type="number"]::placeholder {
 
 /* Shipping progress bar */
 
-.margin-area, .msgs {
-  position: relative;
-  text-align: center;
-  font-size: .88rem;
-}
 .dot {
   height: 1.5rem;
   width: 1.5rem;
@@ -397,35 +392,5 @@ input[type="number"]::placeholder {
   }
   &.third {
     left: 61.5%;
-  }
-}
-.msgs {
-  display: flex;
-  margin-top: 2.3rem;
-  gap: 1.6rem;
-}
-.message {
-  width: 6rem;
-  &.message-2 {
-    left: 20%;
-  }
-  &.message-3 {
-    left: 50%;
-  }
-  &.message-4 {
-    left: 80%;
-  }
-}
-.status {
-  text-align: center;
-  color: black;
-}
-a {
-  color: #0c84d9;
-  text-decoration: none;
-  font-weight: bold;
-  &:hover,
-  &:focus {
-    text-decoration: underline;
   }
 }
