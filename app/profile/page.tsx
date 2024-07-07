@@ -9,7 +9,7 @@ import { updateData } from "@/app/_components/nav/navbar";
 
 export default function Profile() {
     const [UserData, setUserData] = useState<UserLoginData>();
-    const [page, setPage] = useState<string>('details');
+    const [page, setPage] = useState<string>('details'); // default page when opening
     const router = useRouter();
 
     useEffect(() => {
@@ -55,7 +55,7 @@ export default function Profile() {
             </div>
             <div className="w-[85%] bg-white rounded-md px-10 py-8 shadow-md">
                 { page === "details" && UserData && <Details data={UserData} /> }
-                { page === "orders" && <Orders data={UserData}/> }
+                { page === "orders" && UserData && <Orders data={UserData}/> }
                 { page === "settings" && <Addresses/> }
             </div>
         </div>

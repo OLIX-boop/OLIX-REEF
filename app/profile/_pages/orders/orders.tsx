@@ -33,35 +33,15 @@ export default function Orders({data}:{data:UserLoginData}) {
         getOrders();
     },[data.id])
 
-    function idToNum(stringa:string) {
-        const mappaCaratteri: {[key:string]: string} = {
-          'a': '1', 'b': '2', 'c': '3', 'd': '4', 'e': '5',
-          'f': '6', 'g': '7', 'h': '8', 'i': '9', 'j': '10',
-          'k': '11', 'l': '12', 'm': '13', 'n': '14', 'o': '15',
-          'p': '16', 'q': '17', 'r': '18', 's': '19', 't': '20',
-          'u': '21', 'v': '22', 'w': '23', 'x': '24', 'y': '25',
-          'z': '26'
-        };
-      
-        let risultato = '';
-        for (let carattere of stringa) {
-          if (mappaCaratteri[carattere]) {
-            risultato += mappaCaratteri[carattere];
-          } else {
-            risultato += '0'; // Carattere non trovato, sostituiamo con '0'
-          }
-        }
-        return risultato;
-      }
     console.log(orders)
     return (<>
         <h1 className="font-bold mb-3 text-3xl flex justify-center">My Orders</h1>
         <hr className="border-black" />
-        <div className="flex flex-col gap-3 mt-5 justify-center align-middle mx-auto">
+        <div className="flex flex-col gap-3 mt-5 justify-center align-middle mx-auto px-2">
             {orders.length < 1 && <h1>You have no orders</h1>}
             {orders.length > 0 &&
                 orders.map((value:Order) => 
-                <div key={value.id} className="grid grid-cols-3 gap-3 border-2 border-gray-300 py-2">
+                <div key={value.id} className="grid grid-cols-3 gap-3 border-2 border-gray-300 py-2 hover:border-gray-400 duration-300 rounded-md">
                     <div className="py-3">
                         <div className="status text-center">Package Tracking: <a className=" text-blue-500 font-bold no-underline hover:underline focus:underline" href="#">123456789</a></div>
                         <div className="relative text-center text-sm ml-2">

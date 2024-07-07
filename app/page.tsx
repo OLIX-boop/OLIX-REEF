@@ -1,7 +1,7 @@
 import Category from "./_components/categories/category";
 import Badge from "./_components/badge/badge";
 import NewCoralsCarousel from "@/app/_components/newCorals/newCorals";
-
+import Button from "./_components/newCorals/button";
 
 import SPS from "../imgs/products/sps.jpg";
 import LPS from "../imgs/products/lps.jpeg";
@@ -32,7 +32,7 @@ export default async function Home() {
       <NewCoralsCarousel/>
 
       <div className="flex justify-center">
-        <button className="mt-8 bg-black border-2 border-black text-white w-[10rem] h-10 m-auto hover:text-black hover:bg-white duration-300">See more</button>
+        <Button />
       </div>
 
 

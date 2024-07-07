@@ -19,7 +19,7 @@ export class DatabaseClient {
             
             return result;
         } catch (err) {
-            throw new Error("Incorrect Password");
+            throw new Error("Invalid email or password");
         }
     }
     
