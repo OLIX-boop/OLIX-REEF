@@ -1,6 +1,8 @@
 ## 🚧🛠️👷 WORK IN PROGRESS
 
-# 🛒 Ecommerce build with Next.js && Pocket base
+# OLIX REEF
+
+# 🛒 Ecommerce website build with Next.js && Pocket base
 
 ## Project Description
 
