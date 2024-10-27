@@ -43,3 +43,6 @@ pb_data/data.db-*
 pb_data/data.db
 pb_data/data.db
 pb_data/logs.db
+
+certs
+certificates

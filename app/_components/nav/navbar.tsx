@@ -8,6 +8,9 @@ import { useEffect, useState } from 'react';
 import DefaultUser from '../../../imgs/defaultUser.png'
 import {User, UserLoginData} from '@/app/user';
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+
 let updateLogin:(data:UserLoginData|null) => void;
 
 export function updateData(data:UserLoginData|null) {
@@ -65,7 +68,7 @@ const Component = ({ip, setCart}: {ip:string, setCart: (b: boolean) => void}) =>
                 </div>}
 
                 <div className="border-l border-white mr-4"></div>
-                <i onClick={() => setCart(true)} className="fa-regular fa-cart-shopping text-2xl cursor-pointer"></i>
+                <FontAwesomeIcon icon={faCartShopping} onClick={() => setCart(true)} className="fa-regular fa-cart-shopping text-2xl cursor-pointer"/>
                 <span className='text-center h-[1%] bg-blue-500 aspect-square text-xs ml-[-.3rem] rounded-full px-[.3rem]'>{qt}</span>
             </div>
         </div>

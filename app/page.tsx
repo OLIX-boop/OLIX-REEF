@@ -6,17 +6,18 @@ import Button from "./_components/newCorals/button";
 import SPS from "../imgs/products/sps.jpg";
 import LPS from "../imgs/products/lps.jpeg";
 import SOFT from "../imgs/products/soft.png";
+import { faHeadset, faShield, faTruckFast } from "@fortawesome/free-solid-svg-icons";
 
 export default async function Home() {
   return (<>
     <div className="bg"></div>
-    <h1 className="w-fit py-[16%] bgText m-auto">OLIX REEF</h1>
+    <h1 className="w-fit py-[16%] bgText m-auto select-none">OLIX REEF</h1>
     <div className=" bg-white min-h-[60vh]">
 
       <div className="flex min-[960px]:flex-row flex-col justify-center pt-7 mb-12 gap-7">
-        <Badge title="Fast Shipping" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon="fa-regular fa-truck-fast" />
-        <Badge title="10 days Warantee" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon="fa-regular fa-shield-check" />
-        <Badge title="Fast Shipping" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon="fa-regular fa-headset" />
+        <Badge title="Fast Shipping" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon={faTruckFast} />
+        <Badge title="10 days Warantee" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon={faShield} />
+        <Badge title="Fast Shipping" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon={faHeadset} />
       </div>
 
       <h1 className="flex justify-center mb-12 text-3xl font-bold">CATEGORIES</h1>

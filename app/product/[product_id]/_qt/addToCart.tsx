@@ -3,6 +3,8 @@ import { RecordModel } from "pocketbase";
 import { useState } from "react";
 import { Cart } from "@/app/_components/cart/cart";
 import toast from "react-hot-toast";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBox, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 
 export default function Quantity({ product }: { product: RecordModel}) {
@@ -45,8 +47,8 @@ export default function Quantity({ product }: { product: RecordModel}) {
       <button className="md:mx-0 mx-auto cart-button min-[1350px]:ml-5 border-0 rounded-sm relative p-1 w-[60%] min-[1350px]:w-[40%] h-10 mt-4  min-[1350px]:mt-auto" onClick={handleCart}>
         <span className="add-to-cart">Add to cart</span>
         <span className="added">Added</span>
-        <i className="fas fa-shopping-cart"></i>
-        <i className="fas fa-box"></i>
+        <FontAwesomeIcon icon={faShoppingCart} className="fas fa-shopping-cart"/>
+        <FontAwesomeIcon icon={faBox} className="fas fa-box"/>
       </button>
     </div>
   );

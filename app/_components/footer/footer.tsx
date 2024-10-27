@@ -1,6 +1,10 @@
 'use client';
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faInstagram } from "@fortawesome/free-brands-svg-icons";
+
 import { useRouter } from "next/navigation";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
 
 const Footer = () => {
     const router = useRouter();
@@ -8,9 +12,9 @@ const Footer = () => {
     return (<>
         <footer className="bg-black flex flex-col justify-center align-center mt-8 py-10 px-16 text-white">
             <div className="w-full flex justify-center gap-8 mb-3">
-                <i className={"fa-brands fa-facebook text-3xl "+hoverAnimation}></i>
-                <i className={"fa-brands fa-instagram text-3xl "+hoverAnimation}></i>
-                <i className={"fa-sharp fa-regular fa-phone text-3xl "+hoverAnimation}></i>
+                <FontAwesomeIcon icon={faFacebook} className={"text-3xl "+hoverAnimation}/>
+                <FontAwesomeIcon icon={faInstagram} className={"text-3xl "+hoverAnimation}/>
+                <FontAwesomeIcon icon={faPhone} className={"text-3xl "+hoverAnimation}/>
             </div>
             <div className="flex justify-center gap-5 pb-5">
                 <p onClick={() => router.push('/')} className={hoverAnimation}>Home</p>

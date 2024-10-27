@@ -4,14 +4,14 @@ import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
     try {
-        const cookiesStore = cookies();
+        const cookiesStore = await cookies();
         const id = await db.isAuthenticated(cookiesStore);
         
         if (!id) 
             return NextResponse.json(
         JSON.stringify("No login found."),
         {
-            status: 500,
+            status: 401,
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -25,7 +25,7 @@ export async function POST(request: Request) {
         return NextResponse.json(
         JSON.stringify("Account not verified."),
         {
-            status: 500,
+            status: 402,
             headers: {
                 'Content-Type': 'application/json',
             },

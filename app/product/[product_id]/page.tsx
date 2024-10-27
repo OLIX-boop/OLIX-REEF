@@ -13,6 +13,7 @@ interface params {
 import PocketBase from 'pocketbase';
 import AddToCart from "./_qt/addToCart";
 import Share from "./_share/share";
+import { faHeadset, faShield, faTruckFast } from "@fortawesome/free-solid-svg-icons";
 
 const pb = new PocketBase('http://127.0.0.1:8090');
 pb.autoCancellation(false);
@@ -20,7 +21,7 @@ pb.autoCancellation(false);
 const getProduct = async (id:string) => await pb.collection('products').getOne(id);
 
 export default async function Products({params}: {params:params}) {
-    const { product_id } = params;
+    const { product_id } = await params;
 
     const product = await getProduct(product_id);
 
@@ -54,16 +55,16 @@ export default async function Products({params}: {params:params}) {
                 <div className="mt-4">
                     <h1 className="font-bold text-2xl mb-2">Description</h1>
 
-                    <p className="text-lg">Raccolto dai migliori Alex Duca della contea. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Doloribus, magni accusamus. Magnam, corporis at alias, beatae, possimus dolore maiores facere officia sequi natus aut itaque soluta? Impedit ab nihil voluptatem!</p>
+                    <p className="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor voluptate, aperiam assumenda eum voluptas officiis, minima maiores nulla cum omnis illo consectetur labore molestias? Inventore, aspernatur harum et iste qui nulla sint fugit, consequuntur minus tempora fuga? Sequi, libero illum.!</p>
                 </div>
             </div>
         </div>
 
 
         <div className="flex min-[960px]:flex-row flex-col justify-center pt-7 mb-12 gap-7">
-            <Badge title="Fast Shipping" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon="fa-regular fa-truck-fast" />
-            <Badge title="10 days Warantee" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon="fa-regular fa-shield-check" />
-            <Badge title="Fast Shipping" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon="fa-regular fa-headset" />
+            <Badge title="Fast Shipping" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon={faTruckFast} />
+            <Badge title="10 days Warantee" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon={faShield} />
+            <Badge title="Fast Shipping" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon={faHeadset} />
         </div>
 
         <hr className="border-black mx-[8%] my-8" />

@@ -41,7 +41,7 @@ class UserData {
         const data = await response.json();
 
         if (!response.ok) {
-            console.error(data)
+            console.log(data);
             return data;
         }
 

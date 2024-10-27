@@ -27,7 +27,7 @@ export default function RootLayout({
         <title>Todo App</title>
         <FontAwesome />
       </head>
-      <body className={`${inter.className} ${cartActive && 'overflow-hidden'}`}>
+      <body cz-shortcut-listen="false" className={`${inter.className} ${cartActive && 'overflow-hidden'}`}>
         <Toaster />
         {cartActive && <Cart disableCart={closeCart}/>}
         <Nav setCart={setCartActive} ip={process.env.NEXT_DB_ID || ''} />
