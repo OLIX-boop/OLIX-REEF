@@ -1,7 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+/*THIS LINE OF CODE HAS TO BE HERE, OTHERWISE BG WONT LOAD - IDK WHY*/
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
 input:-webkit-autofill,

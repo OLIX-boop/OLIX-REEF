@@ -5,7 +5,6 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation'
 import { Cart } from '../cart/cart';
 import { useEffect, useState } from 'react';
-import DefaultUser from '../../../imgs/defaultUser.png'
 import {User, UserLoginData} from '@/app/user';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
