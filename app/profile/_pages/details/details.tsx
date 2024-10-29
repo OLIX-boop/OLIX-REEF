@@ -32,7 +32,7 @@ export default function Details({data}:{data:UserLoginData}) {
             return;
         
         const id = data.id;
-        const response = await fetch('/api/auth/changeinfo', {
+        const response = await fetch('/api/v1/auth/changeinfo', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({email, name, id})
@@ -55,7 +55,7 @@ export default function Details({data}:{data:UserLoginData}) {
             return setErrorPass("Passwords doesn't match!");
 
         const email = data.email;
-        const response = await fetch('/api/auth/changepassword', {
+        const response = await fetch('/api/v1/auth/changepassword', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({password, newpass, email})

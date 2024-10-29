@@ -26,7 +26,7 @@ export default function Register() {
         try {
             const name = firstName.trim() + " " + lastName.trim();
             const form = {name, email, password};
-            const response = await fetch('/api/auth/signup', {
+            const response = await fetch('/api/v1/auth/signup', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(form)
@@ -83,7 +83,7 @@ export default function Register() {
         if (!timerUse) {
             setError('New verification link sent!');
 
-            const response = await fetch('/api/auth/sendverification', {
+            const response = await fetch('/api/v1/auth/sendverification', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({email})
@@ -125,7 +125,7 @@ export default function Register() {
 
             <button type="submit" className="mx-auto bg-black text-white py-2 w-[70%] px-2 border-2 border-black font-bold hover:text-black hover:bg-white duration-150">Register</button>
 
-            <p className="mx-auto flex">Already registered?&nbsp; <p className="cursor-pointer font-bold" onClick={() => router.push('/auth/login')}>Login</p></p>
+            <p className="mx-auto flex">Already registered?&nbsp; <p className="cursor-pointer font-bold" onClick={() => router.push('/v1/auth/login')}>Login</p></p>
         </form>}
 
         {success && <div className="flex flex-col gap-4 w-[50%] my-[30vh] m-auto px-2 border-2 border-black justify-center align-middle py-9">

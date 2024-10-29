@@ -17,7 +17,7 @@ export default function Orders({data}:{data:UserLoginData}) {
     useEffect(()=>{
         const getOrders = async () => {
             const id = data.id;
-            const response = await fetch('/api/auth/getorders', {
+            const response = await fetch('/api/v1/auth/getorders', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify({id})

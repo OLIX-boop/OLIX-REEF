@@ -40,7 +40,7 @@ export default function PasswordReset({searchParams}: {searchParams:Params}) {
             setTimer();
             try {
                 const form = {email};
-                const response = await fetch('/api/auth/resetpassword', {
+                const response = await fetch('/api/v1/auth/resetpassword', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body: JSON.stringify(form)

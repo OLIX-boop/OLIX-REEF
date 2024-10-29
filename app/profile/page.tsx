@@ -22,7 +22,7 @@ export default function Profile() {
 
     const disconnectUser = async () => {
         updateData(null);
-        await fetch('/api/auth/logout', { method: 'POST', headers: {'Content-Type': 'application/json'}});
+        await fetch('/api/v1/auth/logout', { method: 'POST', headers: {'Content-Type': 'application/json'}});
         router.push('/');
     }
 
