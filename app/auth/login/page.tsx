@@ -30,7 +30,8 @@ export default function Login() {
             }
             
         } catch (err) {
-            setEmail('error');
+            console.log(err);
+            setError("Error");
         }
     };
 
@@ -56,13 +57,13 @@ export default function Login() {
             
             <button type="submit" className="mx-auto bg-black text-white py-2 w-[70%] border-2 border-black font-bold hover:text-black hover:bg-white duration-150">Login</button>
             
-            <p onClick={() => router.push('/v1/auth/passwordreset?email='+email)} className="mx-auto underline underline-offset-4 cursor-pointer">Recover my password</p>
+            <p onClick={() => router.push('/auth/passwordreset?email='+email)} className="mx-auto underline underline-offset-4 cursor-pointer">Recover my password</p>
         </form>
 
         <div className="flex flex-col gap-4 w-[30%] mt-[5vh] mb-[10vh] m-auto border-2 justify-center align-middle py-9 border-gray-400 hover:border-black duration-300">
             <h1 className="text-2xl font-bold mx-auto">New to OLIX Reef?</h1>
             <p className="mx-auto w-[70%] text-center">By registering at our shop, you will make more expedite the checkout process, you can add multiple shipping addresses, view and track your orders, and more.</p>
-            <button onClick={() => router.push('/v1/auth/register')} className="mx-auto bg-black text-white py-2 w-[70%] border-2 border-black font-bold hover:text-black hover:bg-white duration-150">Sign Up</button>
+            <button onClick={() => router.push('/auth/register')} className="mx-auto bg-black text-white py-2 w-[70%] border-2 border-black font-bold hover:text-black hover:bg-white duration-150">Sign Up</button>
         </div>
     </>)
 }

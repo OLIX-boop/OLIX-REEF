@@ -13,7 +13,10 @@ import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
 let updateLogin:(data:UserLoginData|null) => void;
 
 export function updateData(data:UserLoginData|null) {
-    updateLogin(data);
+    if (updateLogin != null)
+        updateLogin(data);
+    else
+        console.log("updateLogin in null");
 };
 
 const Component = ({ip, setCart}: {ip:string, setCart: (b: boolean) => void}) => {
@@ -57,7 +60,7 @@ const Component = ({ip, setCart}: {ip:string, setCart: (b: boolean) => void}) =>
             </div>
 
             <div className="text-white my-auto mr-[.3rem] flex justify-end">
-                {!loggedIn && <div className="mr-4 cursor-pointer" onClick={() => router.push('/v1/auth/login')}>
+                {!loggedIn && <div className="mr-4 cursor-pointer" onClick={() => router.push('/auth/login')}>
                     <p className='text-xs' >Login / Signup</p>
                     <p className='text-xs font-bold' >My Account</p>
                 </div>}
