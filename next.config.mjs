@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     env: {
-        NEXT_DB_ID: process.env.NEXT_DB_ID
+        NEXT_DB_ID: process.env.NEXT_DB_ID,
+        NEXT_DNS: process.env.NEXT_DNS
     },
     images: {
         remotePatterns: [

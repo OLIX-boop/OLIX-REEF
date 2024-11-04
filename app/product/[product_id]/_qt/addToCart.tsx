@@ -39,7 +39,7 @@ export default function Quantity({ product }: { product: RecordModel}) {
         <h1 className="w-min m-auto font-bold mb-1">Quantity</h1>
         <div className="addCart flex border-gray-200 w-min rounded-xl h-10">
           <button onClick={() => useQt((prev) => (prev >= product.stock ? prev : ++prev))} className="btn1 px-4 border-2 hover:border-black">+</button>
-          <input value={qt} className="w-14 focus:outline-none text-center border-t-2 border-b-2" type="number" name="" id=""/>
+          <input onChange={console.log} value={qt} className="w-14 focus:outline-none text-center border-t-2 border-b-2" type="number" name="" id=""/>
           <button onClick={() => useQt((prev) => (prev <= 1 ? prev : --prev))} className="btn2 px-4 border-2 hover:border-black">-</button>
         </div>
       </div>
