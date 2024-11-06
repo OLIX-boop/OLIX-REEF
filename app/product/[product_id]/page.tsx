@@ -29,12 +29,12 @@ export default async function Products({params}: {params:params}) {
 
     return (<>
         <div className="w-[80%] m-auto my-10 flex">
-            <div className="w-[50%] hidden md:block h-auto overflow-hidden">
+            <div className="w-[50%] hidden md:block h-auto overflow-hidden rounded-xl border-[6px] border-gray-500">
                 <Image className="hover:scale-125 duration-200" height={1000} width={1000} src={product?.img !== '' ? img : notFound}  alt=""/>
             </div>
             <div className="ml-8 md:w-[50%]">
                 <h1 className="font-bold text-5xl mb-3 w-fit text-center md:text-left md:mx-0 mx-auto">{product?.title}</h1>
-                <h1 className="font-bold text-5xl mb-3 w-fit text-center md:text-left md:mx-0 mx-auto">€{product?.price}</h1>
+                <h1 className="font-bold text-2xl mb w-fit text-center md:text-left md:mx-0 mx-auto">€{product?.price}</h1>
 
                 <div className="w-[80%] mx-auto my-9 md:hidden block h-auto overflow-hidden">
                     <Image className="hover:scale-125 duration-200" height={1000} width={1000} src={product?.img !== '' ? img : notFound}  alt=""/>
@@ -48,15 +48,14 @@ export default async function Products({params}: {params:params}) {
 
                 <hr className="border-black" />
 
-                <AddToCart product={product}/>
-
-                <hr className="border-black mt-8" />
-
                 <div className="mt-4">
                     <h1 className="font-bold text-2xl mb-2">Description</h1>
 
                     <p className="text-lg">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor voluptate, aperiam assumenda eum voluptas officiis, minima maiores nulla cum omnis illo consectetur labore molestias? Inventore, aspernatur harum et iste qui nulla sint fugit, consequuntur minus tempora fuga? Sequi, libero illum.!</p>
                 </div>
+
+                <AddToCart product={product}/>
+
             </div>
         </div>
 

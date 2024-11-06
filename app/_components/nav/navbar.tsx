@@ -37,15 +37,10 @@ const Component = ({ip, setCart}: {ip:string, setCart: (b: boolean) => void}) =>
             }, 100);
         }
 
-        updateLogin = (data:UserLoginData|null) => {
-            if (data)
-                setLoggedIn(true);
-            else
-                setLoggedIn(false);
-        }
+        updateLogin = (data:UserLoginData|null) => setLoggedIn(data && true || false);
 
         setup();
-    }, [User])
+    }, [User]);
     
     return (<>
         <div className="bg-black grid grid-cols-2 sm:grid-cols-3 justify-between align-center py-4 px-10">
