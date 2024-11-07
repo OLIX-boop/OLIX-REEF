@@ -2,6 +2,7 @@ import Category from "./_components/categories/category";
 import Badge from "./_components/badge/badge";
 import NewCoralsCarousel from "@/app/_components/newCorals/newCorals";
 import Button from "./_components/newCorals/button";
+import BG from "./_components/bg/bg";
 
 import SPS from "../imgs/products/sps.jpg";
 import LPS from "../imgs/products/lps.jpeg";
@@ -10,7 +11,7 @@ import { faHeadset, faShield, faTruckFast } from "@fortawesome/free-solid-svg-ic
 
 export default async function Home() {
   return (<>
-    <div className="bg"></div>
+    <BG />
     <h1 className="w-fit py-[16%] bgText m-auto select-none">OLIX REEF</h1>
     <div className=" bg-white min-h-[60vh]">
 
