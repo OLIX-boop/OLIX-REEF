@@ -17,18 +17,11 @@ export default function Quantity({ product }: { product: RecordModel}) {
       useQt(1);
 
       Cart.AddToCart(product, qt, (passed) => {
-        if (!passed) {
-          clickable = true;
+        if (!passed) 
           toast.error("Stock is empty");
-        } else {
-          const target = e.currentTarget.classList;
-          target.add("clicked");
-          
-          setTimeout(() => {
-            target.remove("clicked");
-            clickable = true;
-          }, 3000);
-        }
+        else 
+          toast.success("Added to cart");
+        clickable = true;
       });
     }
   };
