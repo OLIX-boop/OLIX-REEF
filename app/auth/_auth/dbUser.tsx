@@ -120,18 +120,31 @@ export class DatabaseClient {
         }
     }
 
-        // getUserOrders doesn't need any explaination
-        async getUserOrders(id:string) {
-            try {
-                return await this.client.collection('orders').getFullList({
-                    filter: `user.id = "${id}"`,
-                    requestKey: null
-                });
-            } catch (err) {
-                console.log(err)
-                throw err;
-            }
+    // getUserOrders doesn't need any explaination
+    async getUserOrders(id:string) {
+        try {
+            return await this.client.collection('orders').getFullList({
+                filter: `user.id = "${id}"`,
+                requestKey: null
+            });
+        } catch (err) {
+            console.log(err)
+            throw err;
         }
+    }
+
+    // getUrserAddresses doesn't need any explaination
+    async getUrserAddresses(id:string) {
+        try {
+            return await this.client.collection('addresses').getFullList({
+                filter: `user.id = "${id}"`,
+                requestKey: null
+            });
+        } catch (err) {
+            console.log(err)
+            throw err;
+        }
+    }
 }
 
 // We create an instance of the DatabaseClient that can be used throughout the app.

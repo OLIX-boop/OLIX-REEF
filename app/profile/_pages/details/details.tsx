@@ -78,10 +78,10 @@ export default function Details({data}:{data:UserLoginData}) {
             {successDetails.length > 0 && <p className="mb-[-1vh] text-green-700 border-2 border-green-700 rounded-md p-2 bg-green-200">&nbsp;{successDetails}</p>}
             
             <label className="mb-[-1vh] text-lg" htmlFor="name">Name</label>
-            <input required className="px-2 outline-none border-2 py-1 text-md border-gray-600 hover:border-black duration-200" type="name" id="name" defaultValue={name} value={name} onChange={e => setName(e.target.value || '')} />
+            <input required className="px-2 outline-none border-2 py-1 text-md border-gray-600 hover:border-black duration-200" type="name" id="name" defaultValue={name} onChange={e => setName(e.target.value || '')} />
             
             <label className="mb-[-1vh] text-lg" htmlFor="email">Email</label>
-            <input required className="px-2 outline-none border-2 py-1 text-md border-gray-600 hover:border-black duration-200" id="email" type="email" defaultValue={email} value={email} onChange={e => setEmail(e.target.value || '')} />
+            <input required className="px-2 outline-none border-2 py-1 text-md border-gray-600 hover:border-black duration-200" id="email" type="email" defaultValue={email} onChange={e => setEmail(e.target.value || '')} />
             
             <button type="submit" className="bg-black text-white py-2 border-2 border-black font-bold hover:text-black hover:bg-white duration-150">Save changes</button>
         </form>

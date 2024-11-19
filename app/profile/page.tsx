@@ -6,6 +6,9 @@ import Addresses from "./_pages/addresses/addresses";
 import Orders from "./_pages/orders/orders";
 import { useRouter } from "next/navigation";
 import { updateData } from "@/app/_components/nav/navbar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBagShopping, faMapPin, faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
+
 
 export default function Profile() {
     const [UserData, setUserData] = useState<UserLoginData>();
@@ -34,22 +37,22 @@ export default function Profile() {
                 <button 
                     onClick={() => setPage('details')}
                     className={`text-left pl-4 text-black duration-300 font-bold w-full rounded-[4px] py-1 border-2 ${page === 'details' ? " border-black" : "hover:bg-black hover:text-white border-[#F5F6F8]"}`}
-                ><i className="fa-solid fa-user mr-2"></i>My details</button>
+                ><FontAwesomeIcon icon={faUser} className="mr-2" />My details</button>
 
                 <button
                     onClick={() => setPage('orders')}
                     className={`text-left pl-4 mt-3 text-black duration-300 font-bold w-full rounded-[4px] py-1 border-2 ${page === 'orders' ? " border-black" : "hover:bg-black hover:text-white border-[#F5F6F8]"}`}
-                ><i className="fa-sharp fa-solid fa-bag-shopping mr-2"></i>My Orders</button>
+                ><FontAwesomeIcon icon={faBagShopping} className="mr-2" />My Orders</button>
 
                 <button 
                     onClick={() => setPage('settings')}
                     className={`text-left pl-4 mt-3 text-black duration-300 font-bold w-full rounded-[4px] py-1 border-2 ${page === 'settings' ? " border-black" : "hover:bg-black hover:text-white border-[#F5F6F8]"}`}
-                ><i className="fa-solid fa-map-pin mr-2"></i>My Addres</button>
+                ><FontAwesomeIcon icon={faMapPin} className="mr-2" />My Addres</button>
 
                 <button 
                     onClick={disconnectUser}
                     className={`text-left pl-4 mt-3 text-black duration-300 font-bold w-full rounded-[4px] py-1 border-2 hover:bg-black hover:text-white border-[#F5F6F8]`}
-                ><i className="fa-solid fa-right-from-bracket mr-2"></i>Logout</button>
+                ><FontAwesomeIcon icon={faRightFromBracket} className="mr-2" />Logout</button>
 
 
             </div>

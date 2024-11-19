@@ -6,9 +6,12 @@ export async function POST(request: Request) {
     try {
         const { email, password } = await request.json();
         const result = await db.authenticate(email, password);
+        const cookiesStore = await cookies();
+
         const {record, token} = result;
         record.token = token;
-        cookies().set('pb_auth', db.client.authStore.exportToCookie());
+        
+        cookiesStore.set('pb_auth', db.client.authStore.exportToCookie());
 
         return NextResponse.json(record);
     } catch (err: any) {
