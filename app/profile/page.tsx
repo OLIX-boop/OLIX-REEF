@@ -59,7 +59,7 @@ export default function Profile() {
             <div className="w-[85%] bg-white rounded-md px-10 py-8 shadow-md">
                 { page === "details" && UserData && <Details data={UserData} /> }
                 { page === "orders" && UserData && <Orders data={UserData}/> }
-                { page === "settings" && <Addresses/> }
+                { page === "settings" && UserData && <Addresses data={UserData}/> }
             </div>
         </div>
     </div>)
