@@ -50,7 +50,7 @@ export default function Login() {
             
             {error.length > 0 && <p className=" text-red-600 border-2 border-red-600 rounded-md p-2 bg-red-200 w-[70%] m-auto text-sm">&nbsp;{error}</p>}
             <label className="ml-[15%] mb-[-1vh]" htmlFor="email">Email</label>
-            <input autoComplete="email" required className="px-2 outline-none border-2 w-[70%] mx-auto py-1 text-md border-gray-600 hover:border-black duration-200" type="email" id="email" value={email} onChange={e => setEmail(e.target.value || '')} />
+            <input autocomplete="email" required className="px-2 outline-none border-2 w-[70%] mx-auto py-1 text-md border-gray-600 hover:border-black duration-200" type="email" id="email" value={email} onChange={e => setEmail(e.target.value || '')} />
             
             <label className="ml-[15%] mb-[-1vh]" htmlFor="password">Password</label>
             <input required className="px-2 outline-none border-2 w-[70%] mx-auto py-1 text-md border-gray-600 hover:border-black duration-200" id="password" type="password" value={password} onChange={e => setPassword(e.target.value || '')} />

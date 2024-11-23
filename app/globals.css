@@ -53,6 +53,10 @@ input:-webkit-autofill:active {
 
 /* Scrollbar */
 
+html {
+  scrollbar-gutter: stable; /*to prevent page shift when scrollbar disappears*/
+}
+
 ::-webkit-scrollbar {
   width: 0.4rem;
 }
@@ -202,34 +206,6 @@ input[type="number"]::placeholder {
 
 .filtro.nascosto {
   animation: nascosto 0.9s ease-in-out forwards;
-}
-
-/* Cart Slide in Animation */
-
-@keyframes slideIn {
-  0% {
-    margin-right: -35%;
-  }
-  100% {
-    margin-right: 0;
-  }
-}
-
-@keyframes slideOut {
-  0% {
-    margin-right: 0;
-  }
-  100% {
-    margin-right: -35%;
-  }
-}
-
-.cartAnim {
-  animation: slideIn 0.3s ease-in-out forwards;
-}
-
-.closeCartAnim {
-  animation: slideOut 0.15s ease-in-out forwards;
 }
 
 /* Shipping progress bar */

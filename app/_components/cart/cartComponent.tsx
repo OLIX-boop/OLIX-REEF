@@ -8,7 +8,7 @@ export default function CartComponent({disableCart}: {disableCart: () => void })
     const [cart, setCart] = useState(Cart);
     const [products, setProducts] = useState(Object.fromEntries(cart.products));
 
-    const [closeCart, setCloseCart] = useState(false);
+    const [cartClass, setCartClass] = useState(true);
 
     const increaseProduct =  (id:string) => {
         Cart.AddToCart(products[id].prod, 1, (passed:boolean) => {
@@ -35,10 +35,17 @@ export default function CartComponent({disableCart}: {disableCart: () => void })
         toast.success("Removed element");
     }
 
+    const deactivateCart = () => {
+        setCartClass(false);
+        setTimeout(() => 
+            disableCart()
+        , 300);
+    }
+
     return <>
-        <div onClick={()=>{disableCart(); setCloseCart(true)}} className="z-20 bg-transparent w-[70%] h-full p-0 m-0 absolute"></div>
-        <div className="fixed w-full h-full bg-gray-400/50 duration-300 z-10">
-            <div className={"bg-white ml-auto w-[30vw] h-full p-5 " + (closeCart ? "closeCartAnim" : "cartAnim")}>
+        <div onClick={deactivateCart} className={"fixed w-full h-full z-10 "+ (cartClass ? "animate-bg bg-gray-400/50" : "animate-bg-out bg-transparent")}></div>
+        <div className="fixed w-fit h-full z-10 right-0">
+            <div className={"bg-white ml-auto w-[30vw] h-full p-5  " + (cartClass ? "animate-cart" : "animate-cart-out")}>
                 <div className="flex justify-between">
                     <i className="fa-regular fa-cart-shopping text-2xl cursor-pointer"></i>
 
@@ -47,7 +54,7 @@ export default function CartComponent({disableCart}: {disableCart: () => void })
                         <span className="absolute text-xs bg-blue-500 w-fit px-[.4rem] py-[.1rem] h-5 text-center rounded-full bottom-3 left-[6rem] text-white">{cart.quantity}</span>
                     </div>
 
-                    <i onClick={()=>{disableCart(); setCloseCart(true)}} className="fa-solid fa-xmark text-3xl"></i>
+                    <i onClick={deactivateCart} className="fa-solid fa-xmark text-3xl"></i>
                 </div>
 
                 <hr className="border-black my-2" />

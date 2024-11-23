@@ -26,8 +26,7 @@ export default function RootLayout({
 
   const [cartActive, setCartActive] = useState(false);
 
-  const closeCart = () => 
-    setTimeout(()=> setCartActive(false), 150);
+  const closeCart = () => setCartActive(false);
 
   return (
     <html lang="en">

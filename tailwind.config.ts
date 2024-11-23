@@ -12,6 +12,30 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        },
+        animation: {
+          bg: 'bg .3s ease-out',
+          'bg-out': 'bg-out .3s ease-out',
+          cart: 'cart 0.3s ease-out forwards',
+          'cart-out' : 'cart-out .3s ease-out forwards',
+        },
+      keyframes: {
+        bg: {
+          'from': { 'background-color': 'rgba(0,0,0,0)'},
+          'to': { 'background-color': 'rgba(156, 163, 175, 0.5)'}
+        },
+        'bg-out': {
+          'from': { 'background-color': 'rgba(156, 163, 175, 0.5)'},
+          'to': { 'background-color': 'rgba(0,0,0,0)'},
+        },
+        cart: {
+          'from': { 'margin-right' : '-100%'},
+          'to': { 'margin-right': '0%'}
+        },
+        'cart-out': {
+          'from': { 'margin-right': '0%'},
+          'to': { 'margin-right' : '-100%'},
+        }
       },
     },
   },
