@@ -145,6 +145,22 @@ export class DatabaseClient {
             throw err;
         }
     }
+
+    // setNewAddress doesn't need any explaination
+    async setNewAddress(address:string, name:string, phone:string, id:string) {
+        try {
+            const result = await this.client.collection("addresses").create({
+                address,
+                name,
+                phone,
+                user: id
+            });
+            return result;
+        } catch (err) {
+            console.log(err)
+            throw err;
+        }
+    }
 }
 
 // We create an instance of the DatabaseClient that can be used throughout the app.
