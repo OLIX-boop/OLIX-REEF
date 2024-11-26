@@ -1,10 +1,12 @@
-import Page from "../_components/pages/page";
+import Page from "../_components/pages/pages";
 import Banner from "../../imgs/categories/newcorals.jpg";
-interface Params {
+interface prms {
   category: string;
 }
 
-export default function NewCorals({ searchParams }: { searchParams: Params }) {
+type Params = Promise<{ searchParams: prms }>
+
+export default async function NewCorals({searchParams}: { searchParams: prms }) {
   return (
     <>
       <Page

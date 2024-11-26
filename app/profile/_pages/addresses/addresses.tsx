@@ -1,9 +1,10 @@
 import { UserLoginData } from "@/app/user";
-import { createElement, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import AddressForm from "./form";
 import Loading from "@/app/_components/loading/loading";
 
-export default function Addresses({data}:{data:UserLoginData}) {
+
+export default function Addresses({data}:{data: UserLoginData}) {
     const [ addresses, setAddresses ] = useState<Array<any>>();
     const [ addMode, setAddMode ] = useState(false);
     const [ confirm, setConfirm ] = useState(false);

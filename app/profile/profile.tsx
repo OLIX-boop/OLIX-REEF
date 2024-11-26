@@ -5,7 +5,7 @@ import Details from "./_pages/details/details";
 import Addresses from "./_pages/addresses/addresses";
 import Orders from "./_pages/orders/orders";
 import { useRouter } from "next/navigation";
-import { updateData } from "@/app/_components/nav/navbar";
+import { updateData } from "@/app/_components/nav/nav";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping, faMapPin, faRightFromBracket, faUser } from "@fortawesome/free-solid-svg-icons";
 

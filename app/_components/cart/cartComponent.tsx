@@ -1,10 +1,14 @@
-
+"use client"
 import { Cart, Product } from "./cart"
 import toast from "react-hot-toast";
 import Image from "next/image";
 import { useState } from "react";
+import {  FontAwesomeIcon   } from "@fortawesome/react-fontawesome";
+import { faCartShopping, faXmark } from "@fortawesome/free-solid-svg-icons";
 
-export default function CartComponent({disableCart}: {disableCart: () => void }) {
+
+export default function CartComponent({disableCart}: { disableCart: () => void }) {
+
     const [cart, setCart] = useState(Cart);
     const [products, setProducts] = useState(Object.fromEntries(cart.products));
 
@@ -47,14 +51,15 @@ export default function CartComponent({disableCart}: {disableCart: () => void })
         <div className="fixed w-fit h-full z-10 right-0">
             <div className={"bg-white ml-auto w-[30vw] h-full p-5  " + (cartClass ? "animate-cart" : "animate-cart-out")}>
                 <div className="flex justify-between">
-                    <i className="fa-regular fa-cart-shopping text-2xl cursor-pointer"></i>
+                    
+                    <FontAwesomeIcon icon={faCartShopping} className="text-2xl cursor-pointer" />
 
                     <div className="relative">
                         <h2 className="font-bold text-xl">Your Cart</h2>
                         <span className="absolute text-xs bg-blue-500 w-fit px-[.4rem] py-[.1rem] h-5 text-center rounded-full bottom-3 left-[6rem] text-white">{cart.quantity}</span>
                     </div>
 
-                    <i onClick={deactivateCart} className="fa-solid fa-xmark text-3xl"></i>
+                    <FontAwesomeIcon onClick={deactivateCart} icon={faXmark}  className=" text-3xl "/>
                 </div>
 
                 <hr className="border-black my-2" />
@@ -65,7 +70,7 @@ export default function CartComponent({disableCart}: {disableCart: () => void })
                         {Object.keys(products).map(id => 
                             <div key={id} className="p-2 my-1 flex border-2 border-white hover:border-gray-500 duration-300 w-[100%] max-h-[70%]">
                                 <div className="h-min my-auto mr-2">
-                                    <i onClick={() => deleteProduct(id)} className="fa-solid fa-xmark text-xl aspect-square text-center m-0 hover:text-red-500 duration-300"></i>
+                                    <FontAwesomeIcon onClick={() => deleteProduct(id)} icon={faXmark} className="text-xl aspect-square text-center m-0 hover:text-red-500 duration-300" />
                                 </div>
                                 <div className="max-h-[7rem] max-w-[7rem]">
                                     <Image src={`http://${process.env.NEXT_DB_ID}/api/files/${products[id].prod.collectionId}/${id}/${products[id].prod.img}`} alt="Img" width={600} height={600} />

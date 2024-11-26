@@ -4,7 +4,7 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import { faShare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function Share({product_id}:{product_id:string}) {
+export default function Share({product_id}:{ product_id: string }) {
   return (
     <div className="flex gap-3">
       <Link

@@ -3,18 +3,15 @@ import { RecordModel } from "pocketbase";
 import { useState } from "react";
 import { Cart } from "@/app/_components/cart/cart";
 import toast from "react-hot-toast";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBox, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
-
-export default function Quantity({ product }: { product: RecordModel}) {
-  const [qt, useQt] = useState(1);
+export default function Quantity({product}: { product: RecordModel}) {
+  const [qt, UseQt] = useState(1);
 
   let clickable = true;
   const handleCart = (e: React.MouseEvent<HTMLElement>) => {
     if (clickable) {
       clickable = false;
-      useQt(1);
+      UseQt(1);
 
       Cart.AddToCart(product, qt, (passed) => {
         if (!passed) 

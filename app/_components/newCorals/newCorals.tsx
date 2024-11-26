@@ -24,8 +24,8 @@ const NewCoralsCarousel = async () => {
         {products.items.slice(0, 4).map((e) => (
           <Card
             key={e.id}
-            title={e.title}
             img={`http://${process.env.NEXT_DB_ID}/api/files/${e.collectionId}/${e.id}/${e.img}`}
+            title={e.title}
             price={e.price}
             id={e.id}
           />

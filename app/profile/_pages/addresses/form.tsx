@@ -2,6 +2,7 @@ import { faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 
+
 export default function AddressForm({disableAddMenu, newAddress ,menuClass, addrParam, nameParam, phoneParam, id}: {disableAddMenu: () => void, newAddress: (data: object) => void, menuClass:boolean, addrParam: string, nameParam:string, phoneParam:string, id:string}) {
     const [address, setAddress] = useState(addrParam);
     const [name, setName] = useState(nameParam);

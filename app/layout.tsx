@@ -2,8 +2,7 @@
 import { Inter } from "next/font/google";
 import "./tailwind.css";
 import "./globals.css";
-import FontAwesome from "./_components/font/fontAwesome";
-import Nav from "./_components/nav/navbar";
+import Nav from "./_components/nav/nav";
 import Footer from "./_components/footer/footer";
 import { Toaster } from 'react-hot-toast'
 import Cart from "./_components/cart/cartComponent";
@@ -33,7 +32,6 @@ export default function RootLayout({
       <head>
         <link rel="icon" type="image/svg+xml" href="/icon.png" />
         <title>Todo App</title>
-        <FontAwesome />
       </head>
       <body cz-shortcut-listen="false" className={`${inter.className} ${cartActive && 'overflow-hidden'}`}>
         <Toaster />

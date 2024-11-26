@@ -4,6 +4,7 @@ import { StaticImageData } from "next/image";
 import  Image from "next/image";
 
 import { useRouter } from 'next/navigation'
+
 const Category = ({img, title, to}: {img:StaticImageData, title:string, to:string}) => {
     const router = useRouter();
 

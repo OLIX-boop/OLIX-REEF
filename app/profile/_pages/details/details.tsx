@@ -1,7 +1,9 @@
 import { UserLoginData } from "@/app/user";
 import { useEffect, useState } from "react";
 
-export default function Details({data}:{data:UserLoginData}) {
+
+export default function Details({data}:{ data: UserLoginData }) {
+
     const [email, setEmail] = useState<string>("");
     const [name, setName] = useState<string>("");
     const [errorDetails, setErrorDetails] = useState('');

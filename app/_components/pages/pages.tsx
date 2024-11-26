@@ -5,7 +5,7 @@ import Badge from "../badge/badge";
 import Products from "./_products/products";
 
 import PocketBase from 'pocketbase';
-import { faHeadset, faShield, faTruckFast } from "@fortawesome/free-solid-svg-icons";
+import { faHeadset, faShield } from "@fortawesome/free-solid-svg-icons";
 
 interface Params {
     category: string
@@ -13,7 +13,6 @@ interface Params {
 
 const pb = new PocketBase('http://127.0.0.1:8090');
 pb.autoCancellation(false);
-
 
 export default async function Page({searchParams, type, desc, Banner, Categories}: {searchParams:Params, type:string, desc:string, Banner:StaticImageData, Categories:Array<string>}) {
     const getNewCorals = async () =>  {
@@ -50,7 +49,6 @@ export default async function Page({searchParams, type, desc, Banner, Categories
         <hr className="my-9 mx-[10%]" />
 
         <div className="flex min-[960px]:flex-row flex-col justify-center pt-7 mb-12 gap-7">
-            <Badge title="Fast Shipping" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon={faTruckFast} />
             <Badge title="10 days Warantee" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon={faShield} />
             <Badge title="Fast Shipping" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon={faHeadset} />
         </div>

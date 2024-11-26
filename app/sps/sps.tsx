@@ -1,10 +1,10 @@
-import Page from "../_components/pages/page";
+import Page from "../_components/pages/pages";
 import Banner from "../../imgs/categories/sps.jpg";
-interface Params {
+interface prms {
   category: string;
 }
 
-export default function Lps({ searchParams }: { searchParams: Params }) {
+export default async function Lps({searchParams} : { searchParams: prms }) {
   return (
     <>
       <Page

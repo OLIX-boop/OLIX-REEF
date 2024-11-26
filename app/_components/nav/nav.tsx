@@ -4,11 +4,11 @@ import Logo from '../../../imgs/logo.png';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation'
 import { Cart } from '../cart/cart';
-import { useEffect, useState } from 'react';
+import { use, useEffect, useState } from 'react';
 import {User, UserLoginData} from '@/app/user';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCartShopping } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faUser } from '@fortawesome/free-solid-svg-icons';
 
 let updateLogin:(data:UserLoginData|null) => void;
 
@@ -40,7 +40,7 @@ const Component = ({ip, setCart}: {ip:string, setCart: (b: boolean) => void}) =>
         updateLogin = (data:UserLoginData|null) => setLoggedIn(data && true || false);
 
         setup();
-    }, [User]);
+    });
     
     return (<>
         <div className="bg-black grid grid-cols-2 sm:grid-cols-3 justify-between align-center py-4 px-10">
@@ -61,7 +61,7 @@ const Component = ({ip, setCart}: {ip:string, setCart: (b: boolean) => void}) =>
                 </div>}
 
                 {loggedIn && <div onClick={() => router.push('/profile')} className="h-6 w-6 overflow-hidden rounded-full aspect-square mr-4 cursor-pointer flex items-center justify-center">
-                    <i className="fa-solid fa-user text-2xl"></i>
+                    <FontAwesomeIcon icon={faUser} className='text-2xl' />
                 </div>}
 
                 <div className="border-l border-white mr-4"></div>

@@ -12,7 +12,8 @@ interface Order {
     created: string
 }
 
-export default function Orders({data}:{data:UserLoginData}) {
+
+export default function Orders({data}:{data: UserLoginData}) {
     const [orders, setOrders] = useState<Array<Order>>();
     const [products, setProducts] = useState<Array<Product>>([]);
     useEffect(()=>{

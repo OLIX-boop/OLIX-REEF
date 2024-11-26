@@ -3,9 +3,8 @@
 import Image from "next/image";
 import { useRouter } from 'next/navigation';
 
-const Card = ({img, title, price, id}:{img: string, title: string, price:number, id:string}) => {
+const Card = ({img, title, price, id}: {key:string, img: string, title: string, price:number, id:string}) => {
     const router = useRouter();
-    
     return (<>
         <div onClick={() => router.push('product/'+id)} className="w-[100%] hover:shadow-xl duration-300 p-4 rounded-md">
             <div className="flex justify-center">

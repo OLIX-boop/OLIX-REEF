@@ -1,15 +1,14 @@
 'use client';
 
-import { useState } from "react";
-
-interface Params {
-    email: string;
-}
-
-export default function PasswordReset({searchParams}: {searchParams:Params}) {
+import { use, useState } from "react";
 
 
-    const [email, setEmail] = useState(searchParams.email || '');
+type Params = Promise<{ email: string }>
+
+export default function PasswordReset(props: {params:Params}) {
+    const srcParams = use(props.params);
+
+    const [email, setEmail] = useState(srcParams.email || '');
     const [msg, setMsg] = useState('');
 
     const delay = 60 * 3;

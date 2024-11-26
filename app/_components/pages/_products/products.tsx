@@ -7,7 +7,7 @@ import { useState, useEffect } from "react"
 
 export default function Products({products, ip, type, Categories}: {products:RecordModel[], ip:string, type:string, Categories:Array<string>}) {
     const [filtered, setFiltered] = useState([...products]);
-    const [filter, useFilter] = useState(true);
+    const [filter, UseFilter] = useState(true);
 
     useEffect(()=> setFiltered([...products]),[products]);
 
@@ -47,7 +47,7 @@ export default function Products({products, ip, type, Categories}: {products:Rec
             <div className="sm:pr-[12%] pl=0 pr-0 sm:pl-4">
                 <div className="flex justify-between">
                     <h1 className="font-bold pl-4">{filtered.length} Product(s)</h1>
-                    <button onClick={() => useFilter((e) => !e)} className="bg-black border-2 sm:hidden border-black text-white hover:bg-white hover:text-black duration-300 font-bold w-[20%] mr-3 rounded-[4px] py-1" >
+                    <button onClick={() => UseFilter((e) => !e)} className="bg-black border-2 sm:hidden border-black text-white hover:bg-white hover:text-black duration-300 font-bold w-[20%] mr-3 rounded-[4px] py-1" >
                         Filter
                     </button>
                 </div>
