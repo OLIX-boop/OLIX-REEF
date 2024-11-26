@@ -40,7 +40,7 @@ export default async function Products({params}: {params:params}) {
                     <Image className="hover:scale-125 duration-200" height={1000} width={1000} src={product?.img !== '' ? img : notFound}  alt=""/>
                 </div>
 
-                <div className="flex justify-between">
+                <div className="flex justify-between mb-2">
                     <h1 className="text-xl mb-3">Stock: {product?.stock}</h1>
                     <Share product_id={product.id} />
                 </div>

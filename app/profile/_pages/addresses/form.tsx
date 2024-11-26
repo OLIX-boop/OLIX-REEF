@@ -44,13 +44,13 @@ export default function AddressForm({disableAddMenu, newAddress ,menuClass, addr
 
                 {error.length > 0 && <p className=" text-red-600 border-2 border-red-600 rounded-md p-2 bg-red-200 w-full m-auto text-sm">&nbsp;{error}</p>}
                 <h1 className="text-lg mb-1">Address</h1>
-                <input required className="px-2 w-full outline-none border-2 rounded-sm mr-auto py-1 text-md border-gray-600 hover:border-black duration-200" id="address" type="text" value={address} onChange={e => setAddress(e.target.value || '')} />
+                <input required className="px-2 w-full outline-none border-2 rounded-sm mr-auto py-1 text-md border-gray-400 hover:border-black duration-300" id="address" type="text" value={address} onChange={e => setAddress(e.target.value || '')} />
                 <h1 className="text-lg mb-1">Name</h1>
-                <input required className="px-2 w-full outline-none border-2 rounded-sm mr-auto py-1 text-md border-gray-600 hover:border-black duration-200" id="name" type="text" value={name} onChange={e => setName(e.target.value || '')} />
+                <input required className="px-2 w-full outline-none border-2 rounded-sm mr-auto py-1 text-md border-gray-400 hover:border-black duration-300" id="name" type="text" value={name} onChange={e => setName(e.target.value || '')} />
                 <h1 className="text-lg mb-1">Phone number</h1>
-                <input required className="px-2 w-full outline-none border-2 rounded-sm mr-auto py-1 text-md border-gray-600 hover:border-black duration-200" id="phone" type="text" value={phone} onChange={e => setPhone(e.target.value || '')} />
+                <input required className="px-2 w-full outline-none border-2 rounded-sm mr-auto py-1 text-md border-gray-400 hover:border-black duration-300" id="phone" type="text" value={phone} onChange={e => setPhone(e.target.value || '')} />
                 
-                <button className="bg-black mt-4 text-white p-3 border-2 border-black font-bold hover:text-black hover:bg-white duration-150">ADD</button>
+                <button className="bg-black mt-4 text-white p-3 border-4 border-black font-bold hover:text-black hover:bg-white duration-300">ADD</button>
             </form>
     </>)
 }

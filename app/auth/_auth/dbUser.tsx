@@ -161,6 +161,17 @@ export class DatabaseClient {
             throw err;
         }
     }
+
+    // deleteAddress doesn't need any explaination
+    async deleteAddress(id:string) {
+        try {
+            const result = await this.client.collection("addresses").delete(id);
+            return result;
+        } catch (err) {
+            console.log(err)
+            throw err;
+        }
+    }
 }
 
 // We create an instance of the DatabaseClient that can be used throughout the app.

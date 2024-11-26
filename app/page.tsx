@@ -12,7 +12,7 @@ import { faHeadset, faShield, faTruckFast } from "@fortawesome/free-solid-svg-ic
 export default async function Home() {
   return (<>
     <BG />
-    <h1 className="w-fit py-[16%] bgText m-auto select-none">OLIX REEF</h1>
+    <h1 id="HOME" className="w-fit py-[16%] bgText m-auto select-none">OLIX REEF</h1>
     <div className=" bg-white min-h-[60vh]">
 
       <div className="flex min-[960px]:flex-row flex-col justify-center pt-7 mb-12 gap-7">
@@ -36,9 +36,6 @@ export default async function Home() {
       <div className="flex justify-center">
         <Button />
       </div>
-
-
-
     </div>
     </>);
 }

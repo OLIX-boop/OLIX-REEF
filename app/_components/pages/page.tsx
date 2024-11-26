@@ -34,7 +34,7 @@ export default async function Page({searchParams, type, desc, Banner, Categories
     const filter = category ? `&& category = "${category}"` : "";
     const products = type == "NEWCORALS" ? await getNewCorals() : await getProducts(filter);
     return (<>
-        <div className="absolute z-[-1] w-full" >
+        <div id={type == "NEWCORALS" ? "NEWCORALS" : ""} className="absolute z-[-1] w-full" >
             <Image className="w-full" src={Banner} alt={type} />
         </div>
 

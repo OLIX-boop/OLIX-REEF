@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { UserLoginData } from "@/app/user";
 import { Product } from "@/app/_components/cart/cart";
+import Loading from "@/app/_components/loading/loading";
 
 interface Order {
     id: string,
@@ -12,7 +13,7 @@ interface Order {
 }
 
 export default function Orders({data}:{data:UserLoginData}) {
-    const [orders, setOrders] = useState<Array<Order>>([]);
+    const [orders, setOrders] = useState<Array<Order>>();
     const [products, setProducts] = useState<Array<Product>>([]);
     useEffect(()=>{
         const getOrders = async () => {
@@ -38,8 +39,9 @@ export default function Orders({data}:{data:UserLoginData}) {
         <h1 className="font-bold mb-3 text-3xl flex justify-center">My Orders</h1>
         <hr className="border-black" />
         <div className="flex flex-col gap-3 mt-5 justify-center align-middle mx-auto px-2">
-            {orders.length < 1 && <h1>You have no orders</h1>}
-            {orders.length > 0 &&
+            {!orders && <Loading value={orders} />}
+            {orders && orders.length < 1 && <h1>You have no orders</h1>}
+            {orders && orders.length > 0 &&
                 orders.map((value:Order) => 
                 <div key={value.id} className="grid grid-cols-3 gap-3 border-2 border-gray-300 py-2 hover:border-gray-400 duration-300 rounded-md">
                     <div className="py-3">

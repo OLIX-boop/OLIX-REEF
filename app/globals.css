@@ -12,7 +12,7 @@ input:-webkit-autofill:active {
 /* Parallax BG */
 
 .bgText {
-  color: rgba(255, 255, 255, 0.523);
+  color: rgba(255, 255, 255, 0.623);
   font-size: 8.5vw;
   font-family: "Varela Round", sans-serif;
   font-weight: 400;
@@ -55,6 +55,8 @@ input:-webkit-autofill:active {
 
 html {
   scrollbar-gutter: stable; /*to prevent page shift when scrollbar disappears*/
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* If you need scroll offset try this magic! */
 }
 
 ::-webkit-scrollbar {

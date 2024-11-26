@@ -95,7 +95,7 @@ export default function CartComponent({disableCart}: {disableCart: () => void })
 
                 <div className="flex flex-col p-3">
                     <h1 className="font-bold mb-6 text-xl">Total amount: {Object.values(products).reduce((a: number, p: Product) => a + p.quantity * p.prod.price, 0)}$</h1>
-                    <button className="mb-2 bg-blue-500 border-4 border-white text-white p-4 rounded-md font-bold duration-500 hover:bg-white hover:text-black hover:border-blue-500">CONTINUE SHOPPING</button>
+                    <button onClick={deactivateCart} className="mb-2 bg-blue-500 border-4 border-white text-white p-4 rounded-md font-bold duration-500 hover:bg-white hover:text-black hover:border-blue-500">CONTINUE SHOPPING</button>
                     <button className="bg-blue-500 border-4 border-white text-white p-4 rounded-md font-bold duration-500 hover:bg-white hover:text-black hover:border-blue-500">PROCEED TO CHECKOUT</button>
                 </div>
             </div>
