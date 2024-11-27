@@ -1,8 +1,8 @@
-import Category from "../_components/categories/categories";
-import Badge from "../_components/badge/badge";
+import Category from "./_components/categories/categories";
+import Badge from "./_components/badge/badge";
 import NewCoralsCarousel from "@/app/_components/newCorals/newCorals";
-import Button from "../_components/newCorals/button";
-import BG from "../_components/bg/bg";
+import Button from "./_components/newCorals/button";
+import BG from "./_components/bg/bg";
 
 import SPS from "../imgs/products/sps.jpg";
 import LPS from "../imgs/products/lps.jpeg";
