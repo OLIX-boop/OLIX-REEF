@@ -1,10 +1,10 @@
 import Page from "../_components/pages/pages";
 import Banner from "../../imgs/categories/lps.png";
-interface prms {
-  category: string;
-}
 
-export default async function Lps({searchParams} : { searchParams: prms }) {
+type Params = Promise<{ category: string }>
+
+export default async function Lps(props : { searchParams: Params }) {
+  const searchParams = await props.searchParams;
   return (
     <>
       <Page

@@ -1,12 +1,9 @@
 import Page from "../_components/pages/pages";
 import Banner from "../../imgs/categories/newcorals.jpg";
-interface prms {
-  category: string;
-}
+type Params = Promise<{ category: string }>
 
-type Params = Promise<{ searchParams: prms }>
-
-export default async function NewCorals({searchParams}: { searchParams: prms }) {
+export default async function NewCorals(props : { searchParams: Params }) {
+  const searchParams = await props.searchParams;
   return (
     <>
       <Page
