@@ -2,7 +2,7 @@ import PocketBase from 'pocketbase';
 
 const pb = new PocketBase('http://127.0.0.1:8090');
 
-import Card from "../card/card";
+import Card from "@/app/_components/card/card";
 
 const getNewCorals = async () =>  {
   const date = new Date();

@@ -1,11 +1,11 @@
 'use client';
 import { Inter } from "next/font/google";
-import "./tailwind.css";
-import "./globals.css";
-import Nav from "./_components/nav/nav";
-import Footer from "./_components/footer/footer";
+import "@/app/tailwind.css";
+import "@/app/globals.css";
+import Nav from "@/app/_components/nav/nav";
+import Footer from "@/app/_components/footer/footer";
 import { Toaster } from 'react-hot-toast'
-import Cart from "./_components/cart/cartComponent";
+import Cart from "@/app/_components/cart/cartComponent";
 import { useState } from "react";
 
 //font awesome

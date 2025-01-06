@@ -1,15 +1,24 @@
-import Category from "./_components/categories/categories";
-import Badge from "./_components/badge/badge";
-import NewCoralsCarousel from "@/app/_components/newCorals/newCorals";
-import Button from "./_components/newCorals/button";
-import BG from "./_components/bg/bg";
+'use client';
+import Category from "@/app/_components/categories/categories";
+import Badge from "@/app/_components/badge/badge";
+//import NewCoralsCarousel from "@/app/_components/newCorals/newCorals";
+import Button from "@/app/_components/newCorals/button";
+import BG from "@/app/_components/bg/bg";
 
-import SPS from "../imgs/products/sps.jpg";
-import LPS from "../imgs/products/lps.jpeg";
-import SOFT from "../imgs/products/soft.png";
+import SPS from "@/imgs/products/sps.jpg";
+import LPS from "@/imgs/products/lps.jpeg";
+import SOFT from "@/imgs/products/soft.png";
 import { faHeadset, faShield, faTruckFast } from "@fortawesome/free-solid-svg-icons";
 
-export default async function Home() {
+import dynamic from 'next/dynamic'
+ 
+const NewCoralsCarousel = dynamic(
+  () => import("@/app/_components/newCorals/newCorals"),
+  { ssr: false }
+)
+ 
+
+export default function Home() {
   return (<>
     <BG />
     <h1 id="HOME" className="w-fit py-[16%] bgText m-auto select-none">OLIX REEF</h1>

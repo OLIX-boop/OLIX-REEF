@@ -16,7 +16,7 @@ import Share from "./_share/share";
 import { faHeadset, faShield, faTruckFast } from "@fortawesome/free-solid-svg-icons";
 
 const pb = new PocketBase('http://127.0.0.1:8090');
-pb.autoCancellation(false);
+pb.autoCancellation(false); 
 
 
 const getProduct = async (id:string) => await pb.collection('products').getOne(id);
