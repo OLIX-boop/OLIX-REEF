@@ -1,1 +1,5 @@
 - checkout page
+RESPONSIVE E MOBILE:
+- modificare with pagina login con schermo piccolo
+- togliere descrizione pagine sps,lps,soft da mobile
+- modificare with carrello da mobile
