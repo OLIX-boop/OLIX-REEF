@@ -1,22 +1,15 @@
-'use client';
-import Category from "@/app/_components/categories/categories";
 import Badge from "@/app/_components/badge/badge";
-//import NewCoralsCarousel from "@/app/_components/newCorals/newCorals";
-import Button from "@/app/_components/newCorals/button";
 import BG from "@/app/_components/bg/bg";
+import NewCoralsCarousel from "@/app/_components/newCorals/newCorals";
+import Category from "@/app/_components/categories/categories";
+import Button from "@/app/_components/newCorals/button";
+
+import { Suspense } from 'react'
 
 import SPS from "@/imgs/products/sps.jpg";
 import LPS from "@/imgs/products/lps.jpeg";
 import SOFT from "@/imgs/products/soft.png";
 import { faHeadset, faShield, faTruckFast } from "@fortawesome/free-solid-svg-icons";
-
-import dynamic from 'next/dynamic'
- 
-const NewCoralsCarousel = dynamic(
-  () => import("@/app/_components/newCorals/newCorals"),
-  { ssr: false }
-)
- 
 
 export default function Home() {
   return (<>
@@ -39,12 +32,13 @@ export default function Home() {
       </div>
 
       <h1 className="flex justify-center mt-12 mb-8 text-3xl font-bold">NEW CORALS</h1>
-
-      <NewCoralsCarousel/>
+      <Suspense fallback={<div>Loading...</div>}>
+        <NewCoralsCarousel/>
+      </Suspense>
 
       <div className="flex justify-center">
         <Button />
       </div>
     </div>
-    </>);
+  </>);
 }
