@@ -50,7 +50,7 @@ Make sure you have installed:
    Create a `.env.local` file in the root directory of the project and add your environment variables. Example:
 
    ```env
-    NEXT_DB_ID = "127.0.0.1:8090"
+    NEXT_DB_IP = "127.0.0.1:8090"
     NEXT_DNS = "127.0.0.1:8090"
    ```
 

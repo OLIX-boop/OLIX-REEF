@@ -36,7 +36,7 @@ export default function RootLayout({
       <body cz-shortcut-listen="false" className={`${inter.className} ${cartActive && 'overflow-hidden'}`}>
         <Toaster />
         {cartActive && <Cart disableCart={closeCart}/>}
-        <Nav setCart={setCartActive} ip={process.env.NEXT_DB_ID || ''} />
+        <Nav setCart={setCartActive} />
         {children}
         <Footer />
       </body>

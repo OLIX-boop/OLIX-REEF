@@ -19,7 +19,7 @@ export function updateData(data:UserLoginData|null) {
         console.log("updateLogin in null");
 };
 
-const Component = ({ip, setCart}: {ip:string, setCart: (b: boolean) => void}) => {
+const Component = ({setCart}: {setCart: (b: boolean) => void}) => {
     const router = useRouter();
     const [qt, setQt] = useState(Cart.quantity);
     const [loggedIn, setLoggedIn] = useState<boolean>(false);

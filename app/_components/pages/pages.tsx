@@ -11,7 +11,7 @@ interface Params {
     category: string
 }
 
-const pb = new PocketBase('http://127.0.0.1:8090');
+const pb = new PocketBase(`http://${process.env.NEXT_DB_IP}:8090`);
 pb.autoCancellation(false);
 
 export default async function Page({searchParams, type, desc, Banner, Categories}: {searchParams:Params, type:string, desc:string, Banner:StaticImageData, Categories:Array<string>}) {
@@ -44,7 +44,7 @@ export default async function Page({searchParams, type, desc, Banner, Categories
             </div>
         </div>
 
-        <Products ip={process.env.NEXT_DB_ID || ''} products={products} type={type} Categories={Categories}/>
+        <Products ip={process.env.NEXT_DB_IP || ''} products={products} type={type} Categories={Categories}/>
 
         <hr className="my-9 mx-[10%]" />
 

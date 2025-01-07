@@ -1,6 +1,6 @@
 import PocketBase from 'pocketbase';
 
-const pb = new PocketBase('http://127.0.0.1:8090');
+const pb = new PocketBase(`http://${process.env.NEXT_DB_IP}:8090`);
 
 import Card from "@/app/_components/card/card";
 
@@ -24,7 +24,7 @@ const NewCoralsCarousel = async () => {
         {products.items.slice(0, 4).map((e) => (
           <Card
             key={e.id}
-            img={`http://${process.env.NEXT_DB_ID}/api/files/${e.collectionId}/${e.id}/${e.img}`}
+            img={`http://${process.env.NEXT_DB_IP}/api/files/${e.collectionId}/${e.id}/${e.img}`}
             title={e.title}
             price={e.price}
             id={e.id}
