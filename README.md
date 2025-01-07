@@ -50,8 +50,11 @@ Make sure you have installed:
    Create a `.env.local` file in the root directory of the project and add your environment variables. Example:
 
    ```env
-    NEXT_DB_IP = "127.0.0.1:8090"
-    NEXT_DNS = "127.0.0.1:8090"
+      NEXT_PRODUCTION = "false" # true o false
+      # if production is false these values wont be used
+      NEXT_DB_IP = "127.0.0.1" # ip to connect to the db (used to get database's images)
+      NEXT_DNS = "127.0.0.1" # website's dns, used for link sharing
+      # se vuoi aggiungere un parametro aggiungilo nella sezione env di next.config.mjs
    ```
 
 4. **Start the development server**
