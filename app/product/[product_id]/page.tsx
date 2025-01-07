@@ -15,7 +15,7 @@ import AddToCart from "./_qt/addToCart";
 import Share from "./_share/share";
 import { faHeadset, faShield, faTruckFast } from "@fortawesome/free-solid-svg-icons";
 
-const pb = new PocketBase(`${process.env.NEXT_PRODUCTION == "false" ? "http" : "https"}://${process.env.NEXT_DB_IP}:8090`);
+const pb = new PocketBase(`${process.env.NEXT_PRODUCTION == "false" ? "http" : "https"}://${process.env.NEXT_DB_IP}${process.env.NEXT_PRODUCTION == "false" ? ":8090" : ""}`);
 pb.autoCancellation(false); 
 
 
@@ -26,7 +26,7 @@ export default async function Products({params}: {params:Promise<params>}) {
 
     const product = await getProduct(product_id);
 
-    const img = `${process.env.NEXT_PRODUCTION == "false" ? "http" : "https"}://${process.env.NEXT_DB_IP}:8090/api/files/${product.collectionId}/${product.id}/${product.img}`;
+    const img = `${process.env.NEXT_PRODUCTION == "false" ? "http" : "https"}://${process.env.NEXT_DB_IP}${process.env.NEXT_PRODUCTION == "false" ? ":8090" : ""}/api/files/${product.collectionId}/${product.id}/${product.img}`;
 
     return (<>
         <div className="w-[80%] m-auto my-10 flex">

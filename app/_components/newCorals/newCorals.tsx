@@ -1,6 +1,6 @@
 import PocketBase from 'pocketbase';
 
-const pb = new PocketBase(`${process.env.NEXT_PRODUCTION == "false" ? "http" : "https"}://${process.env.NEXT_DB_IP}:8090`);
+const pb = new PocketBase(`${process.env.NEXT_PRODUCTION == "false" ? "http" : "https"}://${process.env.NEXT_DB_IP}${process.env.NEXT_PRODUCTION == "false" ? ":8090" : ""}`);
 
 import Card from "@/app/_components/card/card";
 
@@ -24,7 +24,7 @@ const NewCoralsCarousel = async () => {
         {products.items.slice(0, 4).map((e) => (
           <Card
             key={e.id}
-            img={`${process.env.NEXT_PRODUCTION == "false" ? "http" : "https"}://${process.env.NEXT_DB_IP}:8090/api/files/${e.collectionId}/${e.id}/${e.img}`}
+            img={`${process.env.NEXT_PRODUCTION == "false" ? "http" : "https"}://${process.env.NEXT_DB_IP}${process.env.NEXT_PRODUCTION == "false" ? ":8090" : ""}/api/files/${e.collectionId}/${e.id}/${e.img}`}
             title={e.title}
             price={e.price}
             id={e.id}

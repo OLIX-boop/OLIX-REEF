@@ -11,7 +11,7 @@ interface Params {
     category: string
 }
 
-const pb = new PocketBase(`${process.env.NEXT_PRODUCTION == "false" ? "http" : "https"}://${process.env.NEXT_DB_IP}:8090`);
+const pb = new PocketBase(`${process.env.NEXT_PRODUCTION == "false" ? "http" : "https"}://${process.env.NEXT_DB_IP}${process.env.NEXT_PRODUCTION == "false" ? ":8090" : ""}`);
 pb.autoCancellation(false);
 
 export default async function Page({searchParams, type, desc, Banner, Categories}: {searchParams:Params, type:string, desc:string, Banner:StaticImageData, Categories:Array<string>}) {
