@@ -26,7 +26,7 @@ export default async function Products({params}: {params:Promise<params>}) {
 
     const product = await getProduct(product_id);
 
-    const img = `http://${process.env.NEXT_DB_IP}/api/files/${product.collectionId}/${product.id}/${product.img}`;
+    const img = `http://${process.env.NEXT_DB_IP}:8090/api/files/${product.collectionId}/${product.id}/${product.img}`;
 
     return (<>
         <div className="w-[80%] m-auto my-10 flex">

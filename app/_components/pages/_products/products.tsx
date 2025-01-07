@@ -61,7 +61,7 @@ export default function Products({products, ip, type, Categories}: {products:Rec
                         <Card
                             key={e.id}
                             title={e.title}
-                            img={`http://${ip}/api/files/${e.collectionId}/${e.id}/${e.img}`}
+                            img={`http://${ip}:8090/api/files/${e.collectionId}/${e.id}/${e.img}`}
                             price={e.price}
                             id={e.id}
                         />

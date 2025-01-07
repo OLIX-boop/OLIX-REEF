@@ -73,7 +73,7 @@ export default function CartComponent({disableCart}: { disableCart: () => void }
                                     <FontAwesomeIcon onClick={() => deleteProduct(id)} icon={faXmark} className="text-xl aspect-square text-center m-0 hover:text-red-500 duration-300" />
                                 </div>
                                 <div className="max-h-[7rem] max-w-[7rem]">
-                                    <Image src={`http://${process.env.NEXT_DB_IP}/api/files/${products[id].prod.collectionId}/${id}/${products[id].prod.img}`} alt="Img" width={600} height={600} />
+                                    <Image src={`http://${process.env.NEXT_DB_IP}:8090/api/files/${products[id].prod.collectionId}/${id}/${products[id].prod.img}`} alt="Img" width={600} height={600} />
                                 </div>
                                 <div className="ml-3 flex flex-col gap-2 py-1">
                                     <h1>{products[id].prod.title}</h1>
