@@ -8,7 +8,7 @@ const nextConfig = {
     images: {
         remotePatterns: [
             {
-                protocol: 'http',
+                protocol: process.env.NEXT_PRODUCTION == "false" ? 'http' : 'https',
                 hostname: process.env.NEXT_DB_IP,
                 port: '8090',
                 pathname: '/**/**',

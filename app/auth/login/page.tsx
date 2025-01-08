@@ -44,7 +44,7 @@ export default function Login() {
   
 
     return (<>
-        <form onSubmit={onSubmit} className="flex flex-col gap-4 w-[30%] mt-[10vh] m-auto border-2 border-black justify-center align-middle py-9">
+        <form onSubmit={onSubmit} className="flex flex-col gap-4 max-[960px]:w-[90%] max-[1024px]:w-[70%] w-[30%] mt-[10vh] m-auto border-2 border-black justify-center align-middle py-9">
 
             <h1 className="text-2xl font-bold mx-auto">Login to my account</h1>
             
@@ -60,7 +60,7 @@ export default function Login() {
             <p onClick={() => router.push('/auth/passwordreset?email='+email)} className="mx-auto underline underline-offset-4 cursor-pointer">Recover my password</p>
         </form>
 
-        <div className="flex flex-col gap-4 w-[30%] mt-[5vh] mb-[10vh] m-auto border-2 justify-center align-middle py-9 border-gray-400 hover:border-black duration-300">
+        <div className="flex flex-col gap-4 max-[960px]:w-[90%] max-[1024px]:w-[70%] w-[30%] mt-[5vh] mb-[10vh] m-auto border-2 justify-center align-middle py-9 border-gray-400 hover:border-black duration-300">
             <h1 className="text-2xl font-bold mx-auto">New to OLIX Reef?</h1>
             <p className="mx-auto w-[70%] text-center">By registering at our shop, you will make more expedite the checkout process, you can add multiple shipping addresses, view and track your orders, and more.</p>
             <button onClick={() => router.push('/auth/register')} className="mx-auto bg-black text-white py-2 w-[70%] border-2 border-black font-bold hover:text-black hover:bg-white duration-150">Sign Up</button>

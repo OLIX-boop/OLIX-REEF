@@ -49,7 +49,7 @@ export default function CartComponent({disableCart}: { disableCart: () => void }
     return <>
         <div onClick={deactivateCart} className={"fixed w-full h-full z-10 "+ (cartClass ? "animate-bg bg-gray-400/50" : "animate-bg-out bg-transparent")}></div>
         <div className="fixed w-fit h-full z-10 right-0">
-            <div className={"bg-white ml-auto w-[30vw] h-full p-5  " + (cartClass ? "animate-cart" : "animate-cart-out")}>
+            <div className={"bg-white ml-auto max-[960px]:w-[100vw] w-[30vw] h-full p-5  " + (cartClass ? "animate-cart" : "animate-cart-out")}>
                 <div className="flex justify-between">
                     
                     <FontAwesomeIcon icon={faCartShopping} className="text-2xl cursor-pointer" />

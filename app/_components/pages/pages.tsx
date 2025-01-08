@@ -5,7 +5,7 @@ import Badge from "../badge/badge";
 import Products from "./_products/products";
 
 import PocketBase from 'pocketbase';
-import { faHeadset, faShield } from "@fortawesome/free-solid-svg-icons";
+import { faHeadset, faShield, faTruckFast } from "@fortawesome/free-solid-svg-icons";
 
 interface Params {
     category: string
@@ -37,10 +37,10 @@ export default async function Page({searchParams, type, desc, Banner, Categories
             <Image className="w-full" src={Banner} alt={type} />
         </div>
 
-        <div className="mt-[10%] h-[25vw] bg-white mx-[20%] rounded-md">
-            <div className="pt-[3vw]">
-                <h1 className="font-bold w-fit mx-auto text-[4vw] mb-[2vw]">{type} CORALS</h1>
-                <p className="m-auto w-fit text-[1.1vw] px-[10%] text-center">{desc}</p>
+        <div className="max-[960px]:mt-[25%] max-[960px]:h-fit  mt-[10%] h-[25vw] bg-white mx-[20%] rounded-md">
+            <div className="max-[960px]:py-[2vw] pt-[3vw]">
+                <h1 className="font-bold w-fit mx-auto text-[4vw] min-[960px]:mb-[2vw]">{type} CORALS</h1>
+                <p className="m-auto w-fit text-[1.1vw] px-[10%] text-center max-[960px]:hidden">{desc}</p>
             </div>
         </div>
 
@@ -49,6 +49,7 @@ export default async function Page({searchParams, type, desc, Banner, Categories
         <hr className="my-9 mx-[10%]" />
 
         <div className="flex min-[960px]:flex-row flex-col justify-center pt-7 mb-12 gap-7">
+            <Badge title="Fast Shipping" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon={faTruckFast} />
             <Badge title="10 days Warantee" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon={faShield} />
             <Badge title="Fast Shipping" text="We guarantee a 7 days shipping in EU. 14 in other countries. Otherwise You'll recieve a 5% discount code." icon={faHeadset} />
         </div>

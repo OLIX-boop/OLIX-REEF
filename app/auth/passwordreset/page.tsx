@@ -58,7 +58,7 @@ export default function PasswordReset(props: {params:Params}) {
     
 
     return(<>
-        <div className="flex flex-col gap-4 w-[30%] my-[10vh] m-auto border-2 border-black justify-center align-middle py-9">
+        <div className="flex flex-col gap-4 max-[960px]:w-[90%] max-[1024px]:w-[70%] w-[30%]  my-[10vh] m-auto border-2 border-black justify-center align-middle py-9">
             <h1 className="text-2xl font-bold mx-auto mb-2">Reset Password</h1>
 
             <label className="ml-[15%] mb-[-1vh]" htmlFor="email">Insert your email:</label>
@@ -68,6 +68,13 @@ export default function PasswordReset(props: {params:Params}) {
 
             <button onClick={requestPasswordReset} className="mx-auto bg-black text-white py-2 w-[70%] border-2 border-black font-bold hover:text-black hover:bg-white duration-150">Reset Password</button>
             
+        </div>
+
+        <div className="flex flex-col gap-4 max-[960px]:w-[90%] max-[1024px]:w-[70%] w-[30%] max-[960px]:mt-[-5vh] my-[10vh] mx-auto px-2 border-2 border-black justify-center align-middle py-9">
+
+            <h1 className="text-2xl font-bold mx-auto">Protect your account</h1>
+            <p className=" mx-auto w-[80%] text-center mb-[-1vh]">Your password is the key to your online world. Change it regularly with a unique and hard-to-guess combination. Periodic resets are essential to prevent unauthorized access. Your security is our top priority.</p>
+
         </div>
     </>)
 }

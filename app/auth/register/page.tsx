@@ -95,7 +95,7 @@ export default function Register() {
     }
 
     return (<>
-        {!success && <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-[30%] mt-[10vh] m-auto border-2 border-black justify-center align-middle py-9">
+        {!success && <form onSubmit={handleSubmit} className="flex flex-col gap-4 max-[960px]:w-[90%] max-[1024px]:w-[70%] w-[30%] mt-[10vh] m-auto border-2 border-black justify-center align-middle py-9">
             <h1 className="text-2xl font-bold mx-auto">Register</h1>
 
             {error.length > 0 && <p className=" text-red-600 border-2 border-red-600 rounded-md p-2 bg-red-200 w-[70%] m-auto text-sm">&nbsp;{error}</p>}
@@ -128,7 +128,7 @@ export default function Register() {
             <p className="mx-auto flex">Already registered?&nbsp; <p className="cursor-pointer font-bold" onClick={() => router.push('/auth/login')}>Login</p></p>
         </form>}
 
-        {success && <div className="flex flex-col gap-4 w-[50%] my-[30vh] m-auto px-2 border-2 border-black justify-center align-middle py-9">
+        {success && <div className="flex flex-col gap-4 max-[960px]:w-[90%] max-[1024px]:w-[70%] w-[50%] my-[30vh] m-auto px-2 border-2 border-black justify-center align-middle py-9">
 
             <h1 className="text-2xl font-bold mx-auto">Verify your email!</h1>
             <p className=" mx-auto w-[80%] text-center mb-[-1vh]">Thanks for creating an account! To ensure it&apos;s yours, we&apos;ve sent a verification email to <strong>{email}</strong>. Click the link in that email to complete your account setup. Didn&apos;t see it? Check your spam folder or request a new verification email below. Once verified, you&apos;ll be ready to use your account!</p>
