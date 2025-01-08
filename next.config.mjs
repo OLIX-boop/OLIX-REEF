@@ -7,6 +7,16 @@ const nextConfig = {
         NEXT_PRODUCTION: process.env.NEXT_PRODUCTION,
     },
     images: {
+        localPatterns: [
+            {
+              pathname: '/imgs/**/**',
+              search: '',
+            },
+            {
+                pathname: '/imgs/**',
+                search: '',
+              },
+          ],
         remotePatterns: [
             {
                 protocol: process.env.NEXT_PRODUCTION == "false" ? 'http' : 'https',
