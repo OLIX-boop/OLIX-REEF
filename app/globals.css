@@ -28,12 +28,10 @@ input:-webkit-autofill:active {
   width: 100%;
   min-height: 90%;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: 100% auto;
 
   background-attachment: fixed;
-  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
 
   color: rgba(255, 255, 255, 0.523);
   display: flex;
@@ -43,12 +41,6 @@ input:-webkit-autofill:active {
   font-family: "Varela Round", sans-serif;
   font-weight: 400;
   font-style: normal;
-}
-
-@media only screen and (max-width: 768px) {
-  .bg {
-    background-position-y: -40vw;
-  }
 }
 
 /* Scrollbar */
