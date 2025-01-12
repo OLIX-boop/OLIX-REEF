@@ -2,6 +2,16 @@
 
 PREVIEW: https://olixtests.online
 
+PS: To host this project, I utilized the following technologies:
+- Mini Home Server & Proxmox: Created a virtual machine for efficient resource utilization. 🐧
+- Ubuntu Server 24.04.1: Served as the operating system within the virtual environment. 🐧
+- Node.js & Pocketbase (Linux): Used to compile and run the project.
+- Nginx: Implemented as a reverse proxy for efficient traffic routing. 🌐
+- ZeroSSL: Generated SSL certificates for enhanced security. 🔐
+- ufw (Ubuntu Firewall): Restricted access and only opened necessary ports. 🛡️
+- Router & Godaddy DNS: Configured to route external requests to my home server. 📡 🌐
+- systemctl: Utilized to run database and project services in the background.
+
 # OLIX REEF
 
 ![image](https://github.com/user-attachments/assets/36a9b483-68f1-4808-b3c7-7f3650c5a321)
